@@ -1,4 +1,4 @@
-/* test
+/* 
  * The main() class file for the cityOfAaron project
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
@@ -7,7 +7,7 @@ package cityofaaron;
 
 import byui.cit260.cityofAaron.model.Player;
 import byui.cit260.cityofAaron.model.TeamMember;
-
+import byui.cit260.cityofAaron.model.Location;
 /**
  *
  * @author Laura Mazariegos, Chuck Mikolyski, Jack McBride
@@ -36,6 +36,14 @@ public class CityOfAaron {
         System.out.println(name);
         System.out.println(member1Name + ", " + member1Desc + ", " + member2Name + ", "  + member2Desc + ", and " + member3Name + ", " + member3Desc + ", are the coolest.");
         
-           
+        // Start Chuck Mikolyski
+        Location firstLocation = new Location();
+        firstLocation.setDescription("The Crop Fields");
+        firstLocation.setSymbol("|||");
+        String description = firstLocation.getDescription();
+        String symbol = firstLocation.getSymbol();
+        System.out.println("Location Description: " + description +  "\nLocation"
+        + " Symbol: " + symbol);
+        // End Chuck Mikolyski
     }
 }
