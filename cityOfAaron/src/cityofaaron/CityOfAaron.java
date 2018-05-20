@@ -94,24 +94,9 @@ public class CityOfAaron {
         int wheatForPeople = firstCrop.getWheatForPeople();
         int wheatInStore = firstCrop.getWheatInStore();
         
-        System.out.println("\nJack's tests:");
-        System.out.println("Should be 1: " + acresOwned);
-        System.out.println("Should be 2: " + acresPlanted);
-        System.out.println("Should be 3: " + cropYield);
-        System.out.println("Should be 4: " + eatenByRats);
-        System.out.println("Should be 5: " + harvest);
-        System.out.println("Should be 6: " + harvestAfterOffering);
-        System.out.println("Should be 7: " + newPeople);
-        System.out.println("Should be 8: " + numStarved);
-        System.out.println("Should be 9: " + numDied);
-        System.out.println("Should be 10: " + offering);
-        System.out.println("Should be 11: " + offeringBushels);
-        System.out.println("Should be 12: " + peopleFed);
-        System.out.println("Should be 13: " + population);
-        System.out.println("Should be 14: " + year);
-        System.out.println("Should be 15: " + wheatForPeople);
-        System.out.println("Should be 16: " + wheatInStore);  
-        System.out.println("End of Jack's tests.\n");
+        String testString = firstCrop.toString();
+        
+        System.out.println(testString);
         // End Jack's code
 
     }
