@@ -8,6 +8,7 @@ package cityofaaron;
 import byui.cit260.cityofAaron.model.Player;
 import byui.cit260.cityofAaron.model.TeamMember;
 import byui.cit260.cityofAaron.model.Location;
+import byui.cit260.cityofAaron.model.ListItem;
 /**
  *
  * @author Laura Mazariegos, Chuck Mikolyski, Jack McBride
@@ -45,5 +46,15 @@ public class CityOfAaron {
         System.out.println("Location Description: " + description +  "\nLocation"
         + " Symbol: " + symbol);
         // End Chuck Mikolyski
+        
+        // Laura's code
+        ListItem item = new ListItem();
+        item.setItemName("bushels");
+        item.setItemNumber(0);
+        String itemName = item.getItemName();
+        int itemNumber = item.getItemNumber();
+        System.out.println("Item: " + itemName + " = " + itemNumber);
+        // End Laura's code
+                
     }
 }
