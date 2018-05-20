@@ -16,7 +16,10 @@ public class ListItem implements Serializable{
     private String itemName;
 
     private int itemNumber;
-   
+
+    public ListItem() {
+    }
+     
     public String getItemName() {
         return itemName;
     }
@@ -38,24 +41,4 @@ public class ListItem implements Serializable{
         this.itemNumber = itemNumber;
     }
 
-    @Override
-    public String toString() {
-        return super.toString(); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /**
-     *
-     * @param o
-     * @return
-     */
-    @Override
-    public boolean equals(Object o) {
-        return super.equals(o); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode(); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
