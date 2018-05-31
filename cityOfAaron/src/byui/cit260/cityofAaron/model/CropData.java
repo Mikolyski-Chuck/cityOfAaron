@@ -3,6 +3,7 @@
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
  */
+
 package byui.cit260.cityofAaron.model;
 
 import java.io.Serializable;
