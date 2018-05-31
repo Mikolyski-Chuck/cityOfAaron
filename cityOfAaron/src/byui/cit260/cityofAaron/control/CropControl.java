@@ -41,9 +41,11 @@ public class CropControl {
 
     //acresOwned = acresOwned + acresToBuy
     acresOwned += acresToBuy;
+    cropData.setAcresOwned(acresOwned);
 
     //wheatInStore = wheatInStore - (acresToBuy * landPrice)
     wheatInStore -= (acresToBuy * landPrice);
+    cropData.setWheatInStore(wheatInStore);
 
     return acresOwned;
 
