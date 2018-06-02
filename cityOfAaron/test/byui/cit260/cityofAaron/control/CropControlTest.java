@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author jackmcbride
+ * @author jackmcbride, Laura Mazariegos, Chuck Mikolyski
  */
 public class CropControlTest {
     
@@ -42,10 +42,7 @@ public class CropControlTest {
         int result = CropControl.buyLand(landPrice, acresToBuy, theCrops);
         assertEquals(expResult, result);
     }
-    
-     /**
-     * Tests of buyLand method, of class CropControl.
-     */
+   
     @Test
     public void testBuyLand2() {
         
@@ -61,7 +58,7 @@ public class CropControlTest {
         theCrops.setPopulation(2);
         
         int landPrice = 20;
-        int acresToBuy = -2;
+        int acresToBuy = -1;
         int expResult = -1;
         
         int result = CropControl.buyLand(landPrice, acresToBuy, theCrops);
@@ -178,5 +175,103 @@ public class CropControlTest {
         assertEquals(expResult, result);
     }
     
+    //Start Chuck Mikolyski
+    /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    @Test
+    public void testFeedPeople1() {
+        
+        System.out.println("feedPeople");
+        
+           // ---Test case 1---
+         System.out.println("\tTest case 1: Valid");
+        
+        CropData theCrops = new CropData();
+        
+        theCrops.setWheatInStore(200);
+        
+        int wheatSetAside = 100;
+        int expResult = 100;
+        
+        int result = CropControl.feedPeople(wheatSetAside, theCrops);
+        assertEquals(expResult, result);
+    }
     
+    @Test
+    public void testFeedPeople2() {
+        
+        System.out.println("feedPeople");
+        
+           // ---Test case 2---
+         System.out.println("\tTest case 2: Invalid");
+        
+        CropData theCrops = new CropData();
+        
+        theCrops.setWheatInStore(200);
+        
+        int wheatSetAside = -50;
+        int expResult = -1;
+        
+        int result = CropControl.feedPeople(wheatSetAside, theCrops);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFeedPeople3() {
+        
+        System.out.println("feedPeople");
+        
+           // ---Test case 3---
+         System.out.println("\tTest case 3: Invalid");
+        
+        CropData theCrops = new CropData();
+        
+        theCrops.setWheatInStore(100);
+        
+        int wheatSetAside = 150;
+        int expResult = -1;
+        
+        int result = CropControl.feedPeople(wheatSetAside, theCrops);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFeedPeople4() {
+        
+        System.out.println("feedPeople");
+        
+           // ---Test case 4---
+         System.out.println("\tTest case 4: Boundary");
+        
+        CropData theCrops = new CropData();
+        
+        theCrops.setWheatInStore(100);
+        
+        int wheatSetAside = 100;
+        int expResult = 0;
+        
+        int result = CropControl.feedPeople(wheatSetAside, theCrops);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFeedPeople5() {
+        
+        System.out.println("feedPeople");
+        
+           // ---Test case 5---
+         System.out.println("\tTest case 5: Boundary");
+        
+        CropData theCrops = new CropData();
+        
+        theCrops.setWheatInStore(100);
+        
+        int wheatSetAside = 0;
+        int expResult = 100;
+        
+        int result = CropControl.feedPeople(wheatSetAside, theCrops);
+        assertEquals(expResult, result);
+    }
+    //End Chuck Mikolyski
 }
