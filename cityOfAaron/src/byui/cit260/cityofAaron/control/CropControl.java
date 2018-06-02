@@ -51,4 +51,39 @@ public class CropControl {
 
     }
     
+    // Start Chuck Mikolyski
+    // The feedPeople Method.
+    // Purpose: Feed the people with bushels of wheat.
+    // Parameters: The quantity of bushels of wheat set aside to feed the people, and a reference
+    // to a CropData obrject.
+    // Returns: The number of wheat in store after setting aside wheat to feed the people.
+    //Pre-conditions: The amount of wheat set aside must be a positive number, and <= the amount 
+    // of wheat in store.
+    public static int feedPeople(int wheatSetAside, CropData cropData)
+    {
+        int wheatInStore = cropData.getWheatInStore();
+
+        //if wheatSetAside < 0  return -1
+        if ( wheatSetAside < 0) {
+            return -1;
+        }
+        
+        //if wheatSetAside > wheatInStore return -1
+        if (wheatSetAside > wheatInStore) {
+            return -1;
+        } 
+        
+        //wheatInStore = wheatInStore – wheatSetAside
+        wheatInStore -= wheatSetAside;
+        
+        //save state
+        cropData.setWheatForPeople(wheatSetAside);
+        cropData.setWheatInStore(wheatInStore);
+        
+        //return wheatInStore
+        return wheatInStore;
+    }  
+    //End Chuck Mikolyski
+
+
 }
