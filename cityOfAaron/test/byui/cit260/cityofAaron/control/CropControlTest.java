@@ -354,4 +354,31 @@ public class CropControlTest {
         assertEquals(expResult, result);
     }
     //End Jack McBride
+
+    // start Laura Mazariegos
+    /**
+     * Test of plantCrops method, of class CropControl.
+     */
+    @Test
+    public void testPlantCrops1() {
+        
+        System.out.println("plantCrops1");
+        
+           // ---Test case 5---
+        System.out.println("\tTest case 1: Valid");
+        
+        CropData theCrops = new CropData();
+        CropData theAcres = new CropData();
+               
+        theCrops.setWheatInStore(200);
+        theAcres.setAcresPlanted(2);
+        int acresOwned = 100;
+        //int acresToPlant = 100;
+        int expResult = 100;
+        
+        int result = CropControl.plantCrops(acresOwned,theCrops);
+        assertEquals(expResult, result);
+    } 
+
 }
+
