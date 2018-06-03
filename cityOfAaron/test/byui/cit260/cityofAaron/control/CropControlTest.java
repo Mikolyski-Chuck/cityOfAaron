@@ -364,19 +364,109 @@ public class CropControlTest {
         
         System.out.println("plantCrops1");
         
-           // ---Test case 5---
+           // ---Test case ---
         System.out.println("\tTest case 1: Valid");
         
         CropData theCrops = new CropData();
+        
         CropData theAcres = new CropData();
                
         theCrops.setWheatInStore(200);
-        theAcres.setAcresPlanted(2);
+        //int acresToPlant = cropData.getAcresPlanted();
         int acresOwned = 100;
-        //int acresToPlant = 100;
+        theAcres.setAcresPlanted(2);
+        //acresToPlant = 2;
         int expResult = 100;
         
-        int result = CropControl.plantCrops(acresOwned,theCrops);
+        int result = CropControl.plantCrops(acresOwned,theCrops,theAcres);
+        assertEquals(expResult, result);
+    } 
+@Test
+    public void testPlantCrops2() {
+        
+        System.out.println("plantCrops2");
+        
+           // ---Test case ---
+        System.out.println("\tTest case 2:Invalid ");
+        
+        CropData theCrops = new CropData();
+        
+        CropData theAcres = new CropData();
+               
+        theCrops.setWheatInStore(100);
+        
+        int acresOwned = 10;
+        theAcres.setAcresPlanted(-2);
+        //acresPlanted = -2;
+        int expResult = -1;
+        
+        int result = CropControl.plantCrops(acresOwned,theCrops,theAcres);
+        assertEquals(expResult, result);
+    } 
+@Test
+    public void testPlantCrops3() {
+        
+        System.out.println("plantCrops3");
+        
+           // ---Test case ---
+        System.out.println("\tTest case3 : Invalid");
+        
+        CropData theCrops = new CropData();
+        
+        CropData theAcres = new CropData();
+               
+        theCrops.setWheatInStore(0);
+        
+        int acresOwned = 100;
+        theAcres.setAcresPlanted(0);
+        //acresPlanted = 0;
+        int expResult = -1;
+        
+        int result = CropControl.plantCrops(acresOwned,theCrops,theAcres);
+        assertEquals(expResult, result);
+    } 
+@Test
+    public void testPlantCrops4() {
+        
+        System.out.println("plantCrops4");
+        
+           // ---Test case ---
+        System.out.println("\tTest case 4: Boundary");
+        
+        CropData theCrops = new CropData();
+        
+        CropData theAcres = new CropData();
+               
+        theCrops.setWheatInStore(100);
+        
+        int acresOwned = 200;
+        theAcres.setAcresPlanted(200);
+        //acresPlanted = 200;
+        int expResult = 0;
+        
+        int result = CropControl.plantCrops(acresOwned,theCrops,theAcres);
+        assertEquals(expResult, result);
+    } 
+@Test
+    public void testPlantCrops5() {
+        
+        System.out.println("plantCrops5");
+        
+           // ---Test case ---
+        System.out.println("\tTest case 5: Boundary");
+        
+        CropData theCrops = new CropData();
+        
+        CropData theAcres = new CropData();
+               
+        theCrops.setWheatInStore(1);
+        
+        int acresOwned = 2;
+        theAcres.setAcresPlanted(2);
+        //acresPlanted = 2;
+        int expResult = 0;
+        
+        int result = CropControl.plantCrops(acresOwned,theCrops,theAcres);
         assertEquals(expResult, result);
     } 
 
