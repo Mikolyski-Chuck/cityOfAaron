@@ -103,6 +103,56 @@ public class CropControl {
 
     }
     // End Jack McBride
+    
+    //Start Laura Mazariegos
+    //The Plant crops method
+    //Purpose: Plant crops
+    //Parameters: the number of acresOwned and a reference to the CropData object
+    //Returns: how much wheat in store after acres planted
+    //Pre-Conditions: acresOwned must be >=acres to plant. Wheat in store = n 
+    //   bushels. 1 bushel of wheat in store = 2 acres of land to plant. Wheat 
+    //   store must be >= acres owned * 2.
+    public static int plantCrops(int acresOwned, CropData cropData)
+    {
+        int acresToPlant = cropData.getAcresPlanted();
+        int wheatInStore = cropData.getWheatInStore();
+        int requiredBushels = acresToPlant / 2; 
+        
+        //If acresToPlant <= 0 return -1
+        if (acresToPlant < 0){
+            return -1;
+        }
+        
+        //If acresOwned < acresToPlant return -1
+        if (acresOwned < acresToPlant){
+            return -1;
+        }
+        
+        //If wheatInStore < 0 return -1
+        if (wheatInStore < 0){
+            return -1;
+        }
+        
+        //If wheatInStore < acresToPlant /2  return -1
+        if (wheatInStore < (acresToPlant / 2)){
+            return -1;
+        }
+       
+        //acresToPlant = wheatInStore / acresOwned
+        acresToPlant = wheatInStore / acresOwned;
+ 
+        //WheatInStore - = requiredBushels
+        wheatInStore -= requiredBushels;
+
+        cropData.setAcresPlanted(acresToPlant);
+        cropData.setWheatInStore(wheatInStore);
+        return wheatInStore;
+        
+        //End Laura Mazariegos
+        
+        
+        
+    }
 
 
 }
