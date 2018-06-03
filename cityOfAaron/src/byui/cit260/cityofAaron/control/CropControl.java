@@ -112,7 +112,7 @@ public class CropControl {
     //Pre-Conditions: acresOwned must be >=acres to plant. Wheat in store = n 
     //   bushels. 1 bushel of wheat in store = 2 acres of land to plant. Wheat 
     //   store must be >= acres owned * 2.
-    public static int plantCrops(int acresOwned, CropData cropData)
+    public static int plantCrops(int acresOwned, int acresPlanted, CropData cropData)
     {
         int acresToPlant = cropData.getAcresPlanted();
         int wheatInStore = cropData.getWheatInStore();
@@ -154,5 +154,6 @@ public class CropControl {
         
     }
 
+   
 
 }
