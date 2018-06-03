@@ -274,4 +274,84 @@ public class CropControlTest {
         assertEquals(expResult, result);
     }
     //End Chuck Mikolyski
+    
+    //Start Jack McBride
+    /**
+     * Test of setOffering method, of class CropControl.
+     */
+    @Test
+    public void testSetOffering1() {
+        
+        System.out.println("setOffering");
+        
+           // ---Test case 1---
+        System.out.println("\tTest case 1: Valid");
+        
+        int offering = 5;
+        int expResult = 5;
+        
+        int result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testSetOffering2() {
+        
+        System.out.println("setOffering");
+        
+           // ---Test case 2---
+        System.out.println("\tTest case 2: Invalid");
+        
+        int offering = -5;
+        int expResult = -1;
+        
+        int result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testSetOffering3() {
+        
+        System.out.println("setOffering");
+        
+           // ---Test case 3---
+        System.out.println("\tTest case 3: Invalid");
+        
+        int offering = 200;
+        int expResult = -1;
+        
+        int result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testSetOffering4() {
+        
+        System.out.println("setOffering");
+        
+           // ---Test case 4---
+        System.out.println("\tTest case 4: Boundary");
+        
+        int offering = 0;
+        int expResult = 0;
+        
+        int result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testSetOffering5() {
+        
+        System.out.println("setOffering");
+        
+           // ---Test case 5---
+        System.out.println("\tTest case 5: Boundary");
+        
+        int offering = 100;
+        int expResult = 100;
+        
+        int result = CropControl.setOffering(offering);
+        assertEquals(expResult, result);
+    }
+    //End Jack McBride
 }

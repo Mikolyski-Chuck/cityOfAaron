@@ -84,6 +84,25 @@ public class CropControl {
         return wheatInStore;
     }  
     //End Chuck Mikolyski
+    
+    // Start Jack McBride
+    // The setOffering method
+    // Purpose: Allocate percentage of harvest to be paid as an offering
+    // Parameters: The percentage of harvest to be paid as an offering
+    // Returns: The percentage of harvest the user wants to pay in tithes
+    //  and offerings.
+    // Pre-conditions: The percentage of harvest must be greater than or
+    // equal to zero and less than or equal to 100.
+    public static int setOffering(int offering) {
+    
+    if (offering < 0 || offering > 100) {
+        return -1;
+    }
+
+    return offering;
+
+    }
+    // End Jack McBride
 
 
 }
