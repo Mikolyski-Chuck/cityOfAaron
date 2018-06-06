@@ -112,39 +112,37 @@ public class CropControl {
     //Pre-Conditions: acresOwned must be >=acres to plant. Wheat in store = n 
     //   bushels. 1 bushel of wheat in store = 2 acres of land to plant. Wheat 
     //   store must be >= acres owned * 2.
-    public static int plantCrops(int acresOwned, int acresPlanted, CropData cropData)
+    public static int plantCrops(int acresPlanted, CropData cropData)
     {
-        int acresToPlant = cropData.getAcresPlanted();
+        int acresOwned = cropData.getAcresOwned();
         int wheatInStore = cropData.getWheatInStore();
-        int requiredBushels = acresToPlant / 2; 
+        int requiredBushels = acresPlanted / 2; 
+        
         
         //If acresToPlant <= 0 return -1
-        if (acresToPlant < 0){
+        if (acresPlanted <= 0){
             return -1;
         }
         
         //If acresOwned < acresToPlant return -1
-        if (acresOwned < acresToPlant){
+        if (acresOwned < acresPlanted){
             return -1;
         }
         
         //If wheatInStore < 0 return -1
-        if (wheatInStore < 0){
+        if (wheatInStore <= 0){
             return -1;
         }
         
         //If wheatInStore < acresToPlant /2  return -1
-        if (wheatInStore < (acresToPlant / 2)){
+        if (wheatInStore < (acresPlanted / 2)){
             return -1;
         }
-       
-        //acresToPlant = wheatInStore / acresOwned
-        acresToPlant = wheatInStore / acresOwned;
- 
+        
         //WheatInStore - = requiredBushels
         wheatInStore -= requiredBushels;
 
-        cropData.setAcresPlanted(acresToPlant);
+        cropData.setAcresPlanted(acresPlanted);
         cropData.setWheatInStore(wheatInStore);
         return wheatInStore;
         
