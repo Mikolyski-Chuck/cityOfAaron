@@ -128,13 +128,14 @@ public class MainMenuView {
         // display the banner page.
         System.out.println("\nWelcome to the city of Aaron. As the assigned " +
                            "\nruler of the city, you will serve for a 10 year " +
-                           "\nterm. Your responsibilities will include: " +
+                           "\nterm. \nYour responsibilities will include: " +
                            "\n*Buying and selling land" +
                            "\n*Managing how many acres of crops to plant" +
-                           "\n*Designating wheat to feed the people, plant " +
-                           "\ncrops, and pay tithes and offerings." +
+                           "\n*Designating wheat to feed the people, " +
+                           "\n   plant crops, and pay tithes and offerings." +
+                           "\n"+
                            "\nMay your term of service to the city of Aaron " +
-                           "\nbe a righteous and blessed one!");
+                           "\n   be a righteous and blessed one!");
         // create a new player object
         Player thePlayer = new Player();
         // prompt for and get the user's name
