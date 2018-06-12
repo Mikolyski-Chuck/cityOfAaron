@@ -460,5 +460,30 @@ public class CropControlTest {
         assertEquals(expResult, result);
     } 
 
+    /**
+     * Test of buyLand method, of class CropControl.
+     */
+    @Test
+    public void testSellLand1() {
+        
+        System.out.println("SellLand");
+        
+           // ---Test case 1 ---
+         System.out.println("\tTest case 1: Valid");
+        
+        CropData theCrops = new CropData();
+        
+        theCrops.setWheatInStore(1000);
+        theCrops.setAcresOwned(2800);
+        
+        int toSell = 10;
+        int price = 15;
+        int expResult = 2790;
+        
+        int result = CropControl.sellLand(price, toSell, theCrops);
+        assertEquals(expResult, result);
+    }
+
+
 }
 
