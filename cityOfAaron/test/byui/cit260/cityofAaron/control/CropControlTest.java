@@ -461,7 +461,7 @@ public class CropControlTest {
     } 
 
     /**
-     * Test of buyLand method, of class CropControl.
+     * Test of sellLand method, of class CropControl.
      */
     @Test
     public void testSellLand1() {
