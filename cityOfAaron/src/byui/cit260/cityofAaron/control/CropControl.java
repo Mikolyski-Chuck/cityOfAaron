@@ -8,10 +8,59 @@
 package byui.cit260.cityofAaron.control;
 
 import byui.cit260.cityofAaron.model.CropData;
+import java.util.Random;
 
 public class CropControl {
     
-    // The buyLand method
+    private static final int LAND_BASE = 17;
+    private static final int LAND_RANGE = 11;
+
+    //random number generator
+    private static Random random = new Random();
+    
+    // calcLandCost() method
+    // Prupose: Calculate a random land price between 17 and 27 bushels/acre
+    // parameters: none;
+    // Returns: the land cost
+    public static int calcLandCost(){
+        int landPrice = random.nextInt(LAND_RANGE) + LAND_BASE;
+        return landPrice;
+    }
+
+
+    //The seellLand method
+    //Purpose: To sell land
+    // Parameters: the price of land, the number of acres to sell, and a 
+    //reference to a CropData object
+    //Returns: the number of acres owned after the sale
+    //Pre-conditions: acres to sell must be positive and <= acresOwned
+    public static int sellLand(int landPrice, int acresToSell, CropData cropData){
+        
+        int owned = cropData.getAcresOwned();
+        int wheat = cropData.getWheatInStore();
+        
+        //if acresToSell < 0, return -1
+        if(acresToSell < 0)
+            return -1;
+        
+        //if acresToSell > acresOwned, return -1
+        if(acresToSell > owned)
+            return -1;
+                    
+        //acresOwned = acresOwned - acresToSell
+        owned -= acresToSell;
+        cropData.setAcresOwned(owned);
+        
+        //wheatInStore = wheatInStore + acresToSell * landPrice
+        wheat += (acresToSell +landPrice);
+        cropData.setWheatInStore(wheat);
+        
+        //return acresOwned
+        return owned;
+    }
+    
+
+// The buyLand method
     // Purpose: To buy land
     // Parameters: the price of the land, the number of acres to buy,
     //     and a reference to a CropData object.
