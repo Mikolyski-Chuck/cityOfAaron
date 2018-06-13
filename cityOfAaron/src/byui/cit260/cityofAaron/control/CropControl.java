@@ -28,7 +28,7 @@ public class CropControl {
     }
 
 
-    //The seellLand method
+    //The sellLand method
     //Purpose: To sell land
     // Parameters: the price of land, the number of acres to sell, and a 
     //reference to a CropData object
