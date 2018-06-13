@@ -4,11 +4,12 @@
  * Object of this class manages the main menu
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 6, 2018
+ * Date last modified: June 12, 2018
  */
 package byui.cit260.cityofAaron.view;
 import byui.cit260.cityofAaron.model.Game;
 import byui.cit260.cityofAaron.model.Player;
+import byui.cit260.cityofAaron.model.CropData;
 import java.util.Scanner;
 
 /**
@@ -121,6 +122,7 @@ public class MainMenuView {
     // =======================================================
     public void startNewGame()
     {
+        
         // create a new game object
         Game theGame = new Game();
         // save a reference to it in the GameProject class
@@ -149,6 +151,26 @@ public class MainMenuView {
         // display a welcome message
         System.out.println("\nWelcome " + name + " have fun.");
         // display the Game menu    
+    
+        // Create a CropData object
+        CropData cropData = new CropData();
+        
+        // Initialize it
+        cropData.setYear(0);
+        cropData.setPopulation(100);
+        cropData.setNewPeople(5);
+        cropData.setCropYield(3);
+        cropData.setNumberWhoDied(0);
+        cropData.setOffering(10);
+        cropData.setWheatInStore(2700);
+        cropData.setAcresOwned(1000);
+        cropData.setAcresPlanted(1000);
+        cropData.setHarvest(3000);
+        cropData.setOfferingBushels(300);
+        cropData.setAcresPlanted(1000);
+        
+        // Save a reference to it in the game
+        theGame.setCropData(cropData);
     }
     
     // The startSavedGame method
@@ -169,7 +191,8 @@ public class MainMenuView {
     // =======================================================
     public void displayHelpMenuView()
     {
-        System.out.println("\nDisplay help menu option selected.");
+        HelpMenuView hmv = new HelpMenuView();
+        hmv.displayMenuView();
     }
     
     // The displaySaveGameView method
