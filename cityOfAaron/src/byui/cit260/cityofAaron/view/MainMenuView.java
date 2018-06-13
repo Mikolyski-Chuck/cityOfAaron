@@ -39,7 +39,7 @@ public class MainMenuView {
            menuOption = getMenuOption();
            // Perform the desired action
            doAction(menuOption);
-        // Determine and display the next 
+        // Determine and display the next view
         } while (menuOption != max);
         
     }
