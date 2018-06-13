@@ -8,6 +8,7 @@
  */
 package byui.cit260.cityofAaron.view;
 
+import byui.cit260.cityofAaron.model.Game;
 import java.util.Scanner;
 /**
  *
@@ -15,23 +16,24 @@ import java.util.Scanner;
  */
 public class GameMenuView {
     
-private String theMenu;
+private String gameMenu;
 private int max;
 Scanner keyboard = new Scanner(System.in);
+private Game theGame;
 
-// The displayGameMenuView method
+// The displayMenuView method
     // Purpose: displays the Game menu, gets the user's input, and
     // does the selected action
     // Parameters: none
     // Returns: none
     // =======================================================
-    public void displayGameMenuView()
+    public void displayMenuView()
     {
         int menuOption;
         do
         {
            // Display the menu
-           System.out.println(theMenu);
+           System.out.println(gameMenu);
            // Prompt the user and get the user's input
            menuOption = getMenuOption();
            // Perform the desired action
@@ -48,7 +50,7 @@ Scanner keyboard = new Scanner(System.in);
     // =======================================================
     public GameMenuView()
     {
-        theMenu = "\n" + 
+        gameMenu = "\n" + 
                 "**************************\n" +
                 "* GAME MENU *\n" +
                 "**************************\n" +
@@ -98,11 +100,11 @@ Scanner keyboard = new Scanner(System.in);
             case 1: // if the option is 1, call viewMap()
                 viewMap();
                 break;
-            case 2: // if the option is 2, call viewPrintList()
-                viewPrintList();
+            case 2: // if the option is 2, call viewList()
+                viewList();
                 break;
-            case 3: // if the option is 3, call move()
-                move();
+            case 3: // if the option is 3, call moveToNewLocation()
+                moveToNewLocation();
                 break;
             case 4: // if the option is 4, call manageCrops()
                 manageCrops();
@@ -124,22 +126,22 @@ Scanner keyboard = new Scanner(System.in);
         
     }
     
-    // The viewPrintList method
+    // The viewList method
     // Purpose: Provides the user with a set list of options
     // Parameters: none
     // Returns: none
     //========================================================
-    public void viewPrintList()
+    public void viewList()
     {
         System.out.println("\nView/Print List menu option selected");
     }
 
-    // The move method
+    // The moveToNewLocation method
     // Purpose: Moves user to a new location
     // Parameters: none
     // Returns: none
     // =======================================================
-    public void move()
+    public void moveToNewLocation()
     {
        System.out.println("\nMove to a new Location menu option selected");
        

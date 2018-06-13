@@ -150,7 +150,9 @@ public class MainMenuView {
         theGame.setThePlayer(thePlayer);
         // display a welcome message
         System.out.println("\nWelcome " + name + " have fun.");
-        // display the Game menu    
+        // display the Game menu   
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenuView();
     
         // Create a CropData object
         CropData cropData = new CropData();
