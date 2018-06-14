@@ -133,7 +133,10 @@ private Game theGame;
     //========================================================
     public void viewList()
     {
-        System.out.println("\nView/Print List menu option selected");
+        viewListHelp list= new viewListHelp();
+        list.displayListHelp();
+        
+        //System.out.println("\nView/Print List menu option selected");
     }
 
     // The moveToNewLocation method
