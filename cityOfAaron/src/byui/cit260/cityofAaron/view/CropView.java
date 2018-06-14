@@ -99,6 +99,7 @@ public class CropView
         // Call the buyLandView() Method
         buyLandView();
         setOfferingView();
+        feedPeopleView();
         // Add calls to the other crop view methods as they are written
     }
 
