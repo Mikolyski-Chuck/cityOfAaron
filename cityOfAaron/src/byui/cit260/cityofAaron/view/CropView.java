@@ -83,7 +83,7 @@ public class CropView
         // Get the user input and save it
         int acresPlanted = keyboard.nextInt();
         
-        // Call the setOffering() method to set aside food to feed the people.
+        // Call the plantCrops() method to plant crops to harvest.
         CropControl.plantCrops(acresPlanted,cropData);
     }   
     // End Laura Mazariegos
