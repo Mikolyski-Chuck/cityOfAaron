@@ -69,10 +69,29 @@ public class CropView
     }   
     // End Jack McBride
     
-    // The buyLandView method
-    // Purpose: Interface with the user input for buying land
+     // Start Laura Mazariegos
+    // The plantCrops method
+    // Purpose: Interface with the user input to set how many crops to plant
     // Parameters: None
     // Returns: None
+    public static void plantCropsView()
+    {
+        // Prompt the user to enter how much wheat they would like to use to
+        //  plant crops
+        System.out.println("How many crops would you like to plant? ");
+        
+        // Get the user input and save it
+        int acresPlanted = keyboard.nextInt();
+        
+        // Call the setOffering() method to set aside food to feed the people.
+        CropControl.plantCrops(acresPlanted,cropData);
+    }   
+    // End Laura Mazariegos
+    // The plantCrops method
+    // Purpose: Interface with the user to set how many crops to plant
+    // Parameters: None
+    // Returns: None
+    
     public static void buyLandView()
     {
         // Get the cost of land for this round
