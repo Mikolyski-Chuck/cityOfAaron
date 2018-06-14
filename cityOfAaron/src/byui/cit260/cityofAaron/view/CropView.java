@@ -29,7 +29,7 @@ public class CropView
     private static CropData cropData = theGame.getCropData();
     
     // Start Chuck Mikolyski
-    // The feedPeopleView method
+    // The feedPeopleView() method
     // Purpose: Interface with the user input to set food aside to feed the
     // people
     // Parameters: None
@@ -48,6 +48,26 @@ public class CropView
         CropControl.feedPeople(wheatSetAside, cropData);
     }   
     // End Chuck Mikolyski
+    
+    // Start Jack McBride
+    // The setOfferingView method
+    // Purpose: Interface with the user input to set tithe offering
+    // Parameters: None
+    // Returns: None
+    public static void setOfferingView()
+    {
+        // Prompt the user to enter how much wheat they would like to pay as
+        // tithe
+        System.out.println("What percentage of harvest would you like to " + 
+                           "offer as tithes?");
+        
+        // Get the user input and save it
+        int offering = keyboard.nextInt();
+        
+        // Call the setOffering() method to set aside food to feed the people.
+        CropControl.setOffering(offering);
+    }   
+    // End Jack McBride
     
     // The buyLandView method
     // Purpose: Interface with the user input for buying land
@@ -78,6 +98,7 @@ public class CropView
      
         // Call the buyLandView() Method
         buyLandView();
+        setOfferingView();
         feedPeopleView();
         // Add calls to the other crop view methods as they are written
     }
