@@ -9,6 +9,7 @@
 package byui.cit260.cityofAaron.view;
 
 import java.util.Scanner;
+
 /**
  *
  * @author Chuck Mikolyski
@@ -110,7 +111,7 @@ Scanner keyboard = new Scanner(System.in);
             case 4: // if the option is 4, call viewMoveHelp()
                 viewMoveHelp();
                 break;
-            case 5: // if the option is 5, call viewListHelp()
+            case 5: // if the option is 5, call ViewListHelp()
                 viewListHelp();
                 break;
             case 6: // if the option is 6, return to main menu
@@ -161,14 +162,15 @@ Scanner keyboard = new Scanner(System.in);
         System.out.println("\nView move help menu option selected");
     }
     
-    // The view viewListHelp method
+    // The view ViewListHelp method
     // Purpose: Displays instructions on how to view list of animals, tools, etc
     // Parameters: none
     // Returns: none
     // =======================================================
     public void viewListHelp()
     {
-        System.out.println("\nView list help menu option selected");
+      
+       System.out.println("\nView list help menu option selected");
     }
 
 }
