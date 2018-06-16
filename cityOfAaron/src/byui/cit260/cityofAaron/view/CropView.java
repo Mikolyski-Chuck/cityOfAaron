@@ -87,11 +87,11 @@ public class CropView
         CropControl.plantCrops(acresPlanted,cropData);
     }   
     // End Laura Mazariegos
-    // The plantCrops method
-    // Purpose: Interface with the user to set how many crops to plant
+    
+    // The buyLandView() method
+    // Purpose: Interface with the user to set much land to buy
     // Parameters: None
     // Returns: None
-    
     public static void buyLandView()
     {
         // Get the cost of land for this round
@@ -117,8 +117,19 @@ public class CropView
      
         // Call the buyLandView() Method
         buyLandView();
-        setOfferingView();
+        
+        //Call the sellLandView() Method
+        
+        // Call the feedPeopleView() Method
         feedPeopleView();
+
+        // Call the plantCropsView() Method
+        plantCropsView();
+        
+
+        // Call the setOfferingView() Method
+        setOfferingView();
+        
         // Add calls to the other crop view methods as they are written
     }
 
