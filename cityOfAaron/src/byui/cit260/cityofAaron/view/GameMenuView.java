@@ -157,7 +157,8 @@ private Game theGame;
     // =======================================================
     public void manageCrops()
     {
-        System.out.println("\nManage crops menu option selected");
+        //System.out.println("\nManage crops menu option selected");
+        CropView.runCropsView();
     }
   
 
