@@ -6,7 +6,6 @@
 package cityofaaron;
 
 import byui.cit260.cityofAaron.view.*;
-
 import byui.cit260.cityofAaron.model.Game;
 /**
  *
@@ -31,8 +30,8 @@ public class CityOfAaron {
     public static void main(String[] args) {
         
         MainMenuView mmv = new MainMenuView();
-        mmv.displayMenuView();
-        
+        mmv.displayMenu();
+
         
 //        Player playerOne = new Player();
 //        
