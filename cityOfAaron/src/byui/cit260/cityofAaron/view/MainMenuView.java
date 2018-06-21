@@ -10,18 +10,13 @@ package byui.cit260.cityofAaron.view;
 import byui.cit260.cityofAaron.model.Game;
 import byui.cit260.cityofAaron.model.Player;
 import byui.cit260.cityofAaron.model.CropData;
-import java.util.Scanner;
+
 
 /**
  *
  * @author jackmcbride
  */
 public class MainMenuView extends MenuView {
-    
-    Scanner keyboard = new Scanner(System.in);
-    private String theMenu;
-    private int max;
-    
     
     
     // The MainMenuView constructor
@@ -154,7 +149,7 @@ public class MainMenuView extends MenuView {
     public void displayHelpMenuView()
     {
         HelpMenuView hmv = new HelpMenuView();
-        hmv.displayMenuView();
+        hmv.displayMenu();
     }
     
     // The displaySaveGameView method
