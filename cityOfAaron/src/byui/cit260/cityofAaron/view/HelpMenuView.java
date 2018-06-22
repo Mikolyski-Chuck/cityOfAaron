@@ -4,52 +4,24 @@
  * Object of this class manages the help menu
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 12, 2018
+ * Date last modified: June 22, 2018
  */
 package byui.cit260.cityofAaron.view;
-
-import java.util.Scanner;
 
 /**
  *
  * @author Chuck Mikolyski
  */
-public class HelpMenuView {
-    
-private String theMenu;
-private int max;
-Scanner keyboard = new Scanner(System.in);
-
-// The displayMenuView method
-    // Purpose: displays the menu, gets the user's input, and
-    // does the selected action
-    // Parameters: none
-    // Returns: none
-    // =======================================================
-    public void displayMenuView()
-    {
-        int menuOption;
-        do
-        {
-           // Display the menu
-           System.out.println(theMenu);
-           // Prompt the user and get the user's input
-           menuOption = getMenuOption();
-           // Perform the desired action
-           doAction(menuOption);
-        // Determine and display the next 
-        } while (menuOption != max);
-        
-    }
+public class HelpMenuView extends MenuView {
     
     // The HelpMenuView constructor
-    // Purpose: Initialize the menu data
+    // Purpose: Initialize the help menu data
     // Parameters: none
     // Returns: none
     // =======================================================
     public HelpMenuView()
     {
-        theMenu = "\n" + 
+        super("\n" + 
                 "**************************\n" +
                 "* HELP MENU *\n" +
                 "**************************\n" +
@@ -59,35 +31,7 @@ Scanner keyboard = new Scanner(System.in);
                 " 4 - How do I move to another location?\n" +
                 " 5 - How do I display a list of animals, provisions and" +
                 " tools in the city storehouse?\n" +
-                " 6 - back to the Main Menu";
-               
-        
-        max = 6;
-    }
-    
-    // The getMenuOption method
-    // Purpose: gets the user's input
-    // Parameters: none
-    // Returns: integer - the option selected
-    // =======================================================
-    public int getMenuOption()
-    {
-        // declare a variable to hold user's input
-        int userInput;
-        // begin loop
-        do
-        {
-        // get user input from the keyboard
-            userInput = keyboard.nextInt();
-        // if it is not a valid value, output an error message
-            if(userInput < 1 || userInput > max)
-            {
-                System.out.println("\nOption must be between 1 and " + max);
-            }
-        // loop back to the top if input was not valid
-        } while(userInput < 1 || userInput > max);
-        // return the value input by the user
-        return userInput;
+                " 6 - back to the Main Menu", 6);
     }
     
     // The doAction method
@@ -95,15 +39,16 @@ Scanner keyboard = new Scanner(System.in);
     // Parameters: none
     // Returns: none
     // =======================================================
-    public void doAction(int option)
+    @Override public void doAction(int option)
     {
+        
         switch(option)
         {
-            case 1: // if the option is 1, call viewGoals()
+            case 1: // if the option is 1, call viewGoals();
                 viewGoals();
                 break;
             case 2: // if the option is 2, call viewAaronLocation()
-                viewAaronLocation();
+              viewAaronLocation();
                 break;
             case 3: // if the option is 3, call viewMapHelp()
                 viewMapHelp();
