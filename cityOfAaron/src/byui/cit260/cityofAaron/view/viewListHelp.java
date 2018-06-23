@@ -4,19 +4,16 @@
  * Object of this class manages the help menu
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 12, 2018
+ * Date last modified: June 23, 2018
  */
 package byui.cit260.cityofAaron.view;
-
-import java.util.Scanner;
-//import byui.cit260.cityofAaron.view.MainMenuView;
 /**
  *
  * @author Laura Mazariegos
  */
-public class viewListHelp 
+public class viewListHelp extends MenuView
 {
-    private String theList;
+    /*private String theList;
     private int max;
     Scanner keyboard = new Scanner(System.in);
     
@@ -42,7 +39,7 @@ public class viewListHelp
             //Display within parameters
             while (listOption!= max);
         
-    }
+    }*/
     
     //The View List help constructor
     //Purpose: to display the list options to the user
@@ -51,7 +48,7 @@ public class viewListHelp
     //===========================================================
     public viewListHelp()
     {
-        theList = "\n" +
+        super ("\n" +
                 "**************************\n" +
                 "* LIST MENU *\n" +
                 "**************************\n" +
@@ -59,9 +56,8 @@ public class viewListHelp
                 " 2 - List or view the tools in the storehouse?\n" +
                 " 3 - List or view the provisions in the storehouse?\n" +
                 " 4 - List or view the authors of this game?\n" +
-                " 5 - back to the Previous Menu";
-        
-        max = 5;
+                " 5 - Back to the Main Menu",
+                5);
     }
 
     // The getListOption method
@@ -69,7 +65,7 @@ public class viewListHelp
     // Parameters: none
     // Returns: integer - the option selected
     // =======================================================
-    public int getListOption()
+    /*public int getListOption()
     {
         // declare a variable to hold user's input
         int userInput;
@@ -87,14 +83,14 @@ public class viewListHelp
         } while(userInput < 1 || userInput > max);
         // return the value input by the user
         return userInput;
-    }
+    }*/
     
     // The doAction method
     // Purpose: performs the selected action
     // Parameters: none
     // Returns: none
     // =======================================================
-    public void doAction(int option)
+    @Override public void doAction(int option)
     {
         switch(option)
         {
