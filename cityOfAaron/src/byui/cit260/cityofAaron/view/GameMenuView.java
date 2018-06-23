@@ -134,7 +134,7 @@ private Game theGame;
     public void viewList()
     {
         viewListHelp list= new viewListHelp();
-        list.displayListHelp();
+        list.displayMenu();
         
         //System.out.println("\nView/Print List menu option selected");
     }
