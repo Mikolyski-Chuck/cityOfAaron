@@ -7,13 +7,15 @@ package cityofaaron;
 
 import byui.cit260.cityofAaron.view.*;
 import byui.cit260.cityofAaron.model.Game;
+import byui.cit260.cityofAaron.model.Player;
 /**
  *
  * @author Laura Mazariegos, Chuck Mikolyski, Jack McBride
  */
 public class CityOfAaron {
+    //Create the Game object, save it in the main driver file
     
-    private static Game theGame = null;
+    private static Game theGame = new Game();
 
     public static Game getTheGame() {
         return theGame;
@@ -22,7 +24,10 @@ public class CityOfAaron {
     public static void setTheGame(Game theGame) {
         CityOfAaron.theGame = theGame;
     }
-
+    
+    Player thePlayer= new Player();
+    thePlayer.setPlayerName(pName);
+    theGame.setPlayer(thePlayer);
     
     /**
      * @param args the command line arguments

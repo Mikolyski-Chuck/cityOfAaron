@@ -7,6 +7,7 @@
  * Date last modified: June 12, 2018
  */
 package byui.cit260.cityofAaron.view;
+import byui.cit260.cityofAaron.control.GameControl;
 import byui.cit260.cityofAaron.model.Game;
 import byui.cit260.cityofAaron.model.Player;
 import byui.cit260.cityofAaron.model.CropData;
@@ -81,16 +82,20 @@ public class MainMenuView extends MenuView {
         // save a reference to it in the GameProject class
         cityofaaron.CityOfAaron.setTheGame(theGame);
         // display the banner page.
-        System.out.println("\nWelcome to the city of Aaron. As the assigned " +
-                           "\nruler of the city, you will serve for a 10 year " +
-                           "\nterm. \nYour responsibilities will include: " +
-                           "\n*Buying and selling land" +
-                           "\n*Managing how many acres of crops to plant" +
-                           "\n*Designating wheat to feed the people, " +
-                           "\n   plant crops, and pay tithes and offerings." +
-                           "\n"+
-                           "\nMay your term of service to the city of Aaron " +
-                           "\n   be a righteous and blessed one!");
+        System.out.println(
+                           "\n******************************************************"+
+                           "\n*Welcome to the city of Aaron. You have been summoned* " +
+                           "\n*by the High Priest to assume your role as ruler of  *" +
+                           "\n*the city. Your responsibility is to buy land, sell  *" +
+                           "\n*land, determine how much wheat to plant each year,  *" +
+                           "\n*and how much to set aside to feed the people. You   *" +
+                           "\n*will also be required to pay an annual tithe on the *" +
+                           "\n*wheat that is harvested. If you fail to provide     *" +
+                           "\n*enough wheat for the people to eat, people will die *"+
+                           "\n*and your workforce will be diminished. Plan very    *" +
+                           "\n*carefully or you may find yourself in trouble with  *"+
+                           "\n*the people. And oh, watch out for plagues and rats! *"+
+                           "\n******************************************************");
         // create a new player object
         Player thePlayer = new Player();
         // prompt for and get the user's name
@@ -102,10 +107,10 @@ public class MainMenuView extends MenuView {
         // save a reference to the Player object in the Game object
         theGame.setThePlayer(thePlayer);
         // display a welcome message
-        System.out.println("\nWelcome " + name + " have fun.");
-        // display the Game menu   
-        
-    
+        System.out.println("\nWelcome " + name + " have fun playing.");
+        //call the createNewGame()method. pass the name as a parameter
+        GameControl.createNewGame(name);
+        // display the Game menu 
         // Create a CropData object
         CropData cropData = new CropData();
         
