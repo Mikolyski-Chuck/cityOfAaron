@@ -6,7 +6,7 @@
 package byui.cit260.cityofAaron.model;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
 /**
  *
  * @author jackmcbride
@@ -14,7 +14,42 @@ import java.io.Serializable;
 public class Game implements Serializable {
     private  Player thePlayer;
     private CropData cropData = null;
+    private Map theMap;
+    private ArrayList<ListItem> animals;
+    private ArrayList<ListItem> tools;
+    private ArrayList<ListItem> provisions;
 
+    public Map getTheMap() {
+        return theMap;
+    }
+
+    public void setTheMap(Map theMap) {
+        this.theMap = theMap;
+    }
+
+    public ArrayList<ListItem> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<ListItem> animals) {
+        this.animals = animals;
+    }
+
+    public ArrayList<ListItem> getTools() {
+        return tools;
+    }
+
+    public void setTools(ArrayList<ListItem> tools) {
+        this.tools = tools;
+    }
+
+    public ArrayList<ListItem> getProvisions() {
+        return provisions;
+    }
+
+    public void setProvisions(ArrayList<ListItem> provisions) {
+        this.provisions = provisions;
+    }
     
     // The getCropData() method
     // Purpose: Get a reference to the crop object
