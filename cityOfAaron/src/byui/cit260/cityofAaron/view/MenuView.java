@@ -4,10 +4,9 @@
  * Object of this class manages the menu views
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 18, 2018
+ * Date last modified: June 27, 2018
  */
 package byui.cit260.cityofAaron.view;
-
 import java.util.Scanner;
 /**
  *
