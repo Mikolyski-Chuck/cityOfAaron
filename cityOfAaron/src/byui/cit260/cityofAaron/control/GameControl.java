@@ -1,17 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The GameControl class file for the cityOfAaron project
+ * Part of the Control layer
+ * Class contains all calculations for managing the game
+ * CIT-260
+ * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
+ * Date last modified: June 27, 2018
  */
 package byui.cit260.cityofAaron.control;
 
 import java.util.ArrayList;
 import cityofaaron.CityOfAaron;
-import byui.cit260.cityofAaron.model.Game;
-import byui.cit260.cityofAaron.model.CropData;
-import byui.cit260.cityofAaron.model.ListItem;
-import byui.cit260.cityofAaron.model.Map;
-import byui.cit260.cityofAaron.model.Location;
+import byui.cit260.cityofAaron.model.*;
+
 
 /**
  *
@@ -25,6 +25,33 @@ public class GameControl {
     //reference to a Game object
     private static Game theGame;
     
+    public static void createNewGame(String pName){
+    
+    //Create the game object. Save it in the main driver file
+    theGame = new Game();
+    CityOfAaron.setTheGame(theGame);
+    
+    //Create the player object. Save it in the game object
+    Player thePlayer = new Player();
+    thePlayer.setName(pName);
+    theGame.setThePlayer(thePlayer);
+    
+    //Create the CropData object
+    createCropDataObject();
+    
+    //Create the list of animals
+    createAnimalList();
+    //Create the list of tools
+    createToolList();
+    //Create the list of provisions
+    createProvisionList();
+    //Creat the locations and the Map object
+    createMap();
+    
+    }    
+
+
+
     //The createCropDataObject method
     public static void createCropDataObject()
     {
@@ -58,6 +85,8 @@ public class GameControl {
         animals.add(new ListItem("Turkeys",5));
         
         theGame.setAnimals(animals);
+        
+        
     
     }
     
@@ -120,7 +149,7 @@ public class GameControl {
         String swamp ="\n";
         String River ="\n";
         
-        theGame.setMap(theMap);
+        theGame.setTheMap(theMap);
         
                 
        
