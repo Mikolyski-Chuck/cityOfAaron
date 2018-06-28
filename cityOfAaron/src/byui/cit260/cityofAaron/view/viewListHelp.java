@@ -146,7 +146,9 @@ public class viewListHelp extends MenuView
     {
         System.out.println("\nThere are tools to use in the Storehouse");
     }
-
+    
+    
+    //**start Laura Mazariegos**
     // The viewProvisons method
     // Purpose: Displays how many provisions are in the storehouse
     // Parameters: none
@@ -154,9 +156,20 @@ public class viewListHelp extends MenuView
     // =======================================================
     public void viewProvisions()
     {
-       System.out.println("\nThere are provisions to use in the Storehouse");
-       
+       // Create the provisions variable ArrayList and store the current
+        // type and amount of provisions in the list.
+        ArrayList<ListItem> provisions = theGame.getProvisions();
+        
+        // Display the opening sentence
+        System.out.println("\nHere are the provisions available in the storehouse");
+        
+        // Start the loop to iterate through the ArrayList
+        for (ListItem i : provisions)
+        // Print the Name and quantity of animals in the ArrayList.
+        System.out.println(i.getItemName() + ": " + i.getItemNumber());
     }
+    //**end Laura Mazariegos**
+    
     
     // The viewAuthors method
     // Purpose: Displays who the authors of this game are
