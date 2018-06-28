@@ -20,14 +20,14 @@ public class Map {
     //Purpose: Set data members to default values
     //Parameters: none 
     //Returns: none
-    public Map(){};
+    public Map(){}
         
     //parameterized Map constructor
     //Purpose: Sets row and column values
     //   and creates an array of Location objects
     //Parameters: row count and column count
     //Returns: none
-    public Map(int_rows,int_cols)
+    public Map(int _rows,int _cols)
     {
         rowCount= _rows;
         colCount= _cols;
@@ -49,7 +49,7 @@ public class Map {
     //Purpose:stores a location object at the row and column
     //Parameters: a row and column, and a reference to a location object
     //Returns: void
-    public void setLocation(int row, int col, Location_location)
+    public void setLocation(int row, int col, Location _location)
     {
         locations[row][col]= _location;
     }
