@@ -60,7 +60,7 @@ public class HelpMenuView extends MenuView {
                 viewListHelp();
                 break;
             case 6: // if the option is 6, return to main menu
-                
+               
         }
     }
     
