@@ -52,7 +52,10 @@ public class GameControl {
 
 
 
-    //The createCropDataObject method
+    //The createCropDataObject() method
+    //Purpose: sets the game CropData
+    //Parameters: none
+    //Return: none
     public static void createCropDataObject()
     {
         CropData theCrops = new CropData();
@@ -73,7 +76,10 @@ public class GameControl {
         theGame.setCropData(theCrops);
     
     }
-    //The createAnimalList method
+    //The createAnimalList() method
+    //Purpose: Sets the Animal List Array
+    //Parameters: none
+    //Return: none
     public static void createAnimalList()
     {
         ArrayList<ListItem> animals = new ArrayList<>();
@@ -91,6 +97,9 @@ public class GameControl {
     }
     
     //The createToolList method
+    //Purpose: Sets the tool List Array
+    //Parameters: none
+    //Return: none
     public static void createToolList()
     {
         ArrayList<ListItem> tools = new ArrayList<>();
@@ -107,7 +116,10 @@ public class GameControl {
     
     }
     
-    //The createprovisionList method
+    //The createProvisionList method
+    //Purpose: Sets the provision List Array
+    //Parameters: none
+    //Return: none
     public static void createProvisionList()
     {
         ArrayList<ListItem> provisions = new ArrayList<>();
@@ -132,29 +144,80 @@ public class GameControl {
          //refer to the map constructor
         Map theMap = new Map(MAX_ROW, MAX_COL);
     
-        String farmland ="\n";
+        String farmland ="\nYou are at the farmland. Here is where the food" +
+                          "for the city is grown.";
         //create a new Location object
         Location loc = new Location();
         //Set the description of the location
-        loc.setDescription(farmland);
+        loc.setDescription(farmland + "\nOne bushel of wheat can plant two acres "+
+                                      "of farmland.");
         loc.setSymbol("(i)(i)(i)");
         //set the location object in each cell of the array in it's column
         for(int i = 0; i < MAX_ROW; i++)
         {
+            theMap.setLocation(i,3,loc);
+        }
+        
+        String forrest ="\nThis is the forrest. This is where meat is found.";
+        Location locTwo = new Location();
+        //Set the description of the location
+        loc.setDescription(forrest);
+        loc.setSymbol("TTT");
+        //set the location object in each cell of the array in it's column
+        for(int i = 0; i < 2; i++)
+        {
             theMap.setLocation(i,4,loc);
         }
         
-        String forrest ="\n";
-        String plains ="\n";
-        String swamp ="\n";
-        String River ="\n";
+        String plains ="\n You are at the plains. It is boring.";
+        Location locThree = new Location();
+        //Set the description of the location
+        loc.setDescription(plains);
+        loc.setSymbol("---");
+        //set the location object in each cell of the array in it's column
+        for(int i = 0; i < MAX_ROW; i++)
+        {
+            theMap.setLocation(i,0,loc);
+        }
+        
+        theMap.setLocation(4, 1, loc);
+        
+        
+        String swamp ="\n This is the swamp. It is worse than boring. Criminals "+
+                       "are banished to the mosquito infested swamp.";
+        Location locFour = new Location();
+        //Set the description of the location
+        loc.setDescription(swamp + "\nWicked city rulers have been sent to the swamp.");
+        loc.setSymbol("000");
+        //set the location object in each cell of the array in it's column
+        
+            theMap.setLocation(3,4,loc);
+            theMap.setLocation(4,4,loc);
+        
+        String river ="\nThis is the river. It provides life and sustenance for"+
+                      "the City of Aaron.";
+        Location locFive = new Location();
+        //Set the description of the location
+        loc.setDescription(river);
+        loc.setSymbol("~~~");
+        //set the location object in each cell of the array in it's column
+        for(int i = 0; i < MAX_ROW; i++)
+        {
+            theMap.setLocation(i,2,loc);
+        }
+        
+        String city ="\nYou are at the City of Aaron. It is a great city full "+
+                     "of happy people, as long as they are fed.";
+        Location locSix = new Location();
+        //Set the description of the location
+        loc.setDescription(city + "\nEach person needs 10 bushels of wheat per "+
+                                  "year to survive.");
+        loc.setSymbol("AAA");
+        
+        theMap.setLocation(2, 1, loc);
+        theMap.setLocation(3, 1, loc);
+        
         
         theGame.setTheMap(theMap);
-        
-                
-       
     }
-    
-   
-    
 }
