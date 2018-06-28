@@ -1,15 +1,12 @@
 /*
- * The HelpMenuView class file for the cityOfAaron project
+ * The GameMenuView class file for the cityOfAaron project
  * Part of the view layer
- * Object of this class manages the help menu
+ * Object of this class manages the game menu
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 13, 2018
+ * Date last modified: June 27, 2018
  */
 package byui.cit260.cityofAaron.view;
-
-import byui.cit260.cityofAaron.model.Game;
-import java.util.Scanner;
 /**
  *
  * @author Jack McBride
