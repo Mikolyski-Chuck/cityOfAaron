@@ -141,9 +141,10 @@ public class GameControl {
     public static void createMap()
     {
         //create the Map object, it is 5x5
-         //refer to the map constructor
+        //refer to the map constructor
         Map theMap = new Map(MAX_ROW, MAX_COL);
     
+        // Create the farmland variable to hold the description of farmland
         String farmland ="\nYou are at the farmland. Here is where the food" +
                           "for the city is grown.";
         //create a new Location object
@@ -158,6 +159,7 @@ public class GameControl {
             theMap.setLocation(i,3,loc);
         }
         
+        // Create the forrest variable to hold the description of the forrest
         String forrest ="\nThis is the forrest. This is where meat is found.";
         Location locTwo = new Location();
         //Set the description of the location
@@ -169,6 +171,7 @@ public class GameControl {
             theMap.setLocation(i,4,loc);
         }
         
+        // Create the plains variable to hold the description of the plains
         String plains ="\n You are at the plains. It is boring.";
         Location locThree = new Location();
         //Set the description of the location
@@ -182,7 +185,7 @@ public class GameControl {
         
         theMap.setLocation(4, 1, loc);
         
-        
+        // Create the swamp variable to hold the description of the swamp
         String swamp ="\n This is the swamp. It is worse than boring. Criminals "+
                        "are banished to the mosquito infested swamp.";
         Location locFour = new Location();
@@ -194,6 +197,7 @@ public class GameControl {
             theMap.setLocation(3,4,loc);
             theMap.setLocation(4,4,loc);
         
+        // Create the river variable to hold the description of the river  
         String river ="\nThis is the river. It provides life and sustenance for"+
                       "the City of Aaron.";
         Location locFive = new Location();
@@ -206,6 +210,7 @@ public class GameControl {
             theMap.setLocation(i,2,loc);
         }
         
+        // Create the city variable to hold the description of the city
         String city ="\nYou are at the City of Aaron. It is a great city full "+
                      "of happy people, as long as they are fed.";
         Location locSix = new Location();
