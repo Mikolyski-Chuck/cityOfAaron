@@ -7,12 +7,16 @@
  * Date last modified: June 23, 2018
  */
 package byui.cit260.cityofAaron.view;
+import byui.cit260.cityofAaron.model.*;
+import java.util.ArrayList;
+import cityofaaron.CityOfAaron;
 /**
  *
  * @author Laura Mazariegos
  */
 public class viewListHelp extends MenuView
 {
+    Game theGame = CityOfAaron.getTheGame();
     /*private String theList;
     private int max;
     Scanner keyboard = new Scanner(System.in);
@@ -111,17 +115,27 @@ public class viewListHelp extends MenuView
         }
     }
     
+    //Start Chuck Mikolyski
     // The viewAnimals method
     // Purpose: Displays how many animals are in the storehouse
     // Parameters: none
     // Returns: none
     // =======================================================
     public void viewAnimals()
-    {
-        System.out.println("\nThere are animals in the Storehouse");
+    {  
+        // Create the animals variable ArrayList and store the current
+        // type and amount of animals in the list.
+        ArrayList<ListItem> animals = theGame.getAnimals();
         
+        // Display the opening sentence
+        System.out.println("\nHere are the quantities of animals in the storehouse");
         
+        // Start the loop to iterate through the ArrayList
+        for (ListItem i : animals)
+        // Print the Name and quantity of animals in the ArrayList.
+        System.out.println(i.getItemName() + ": " + i.getItemNumber());
     }
+    //End Chuck Mikolyski
     
     // The viewTools method
     // Purpose: Displays what tools are in the storehouse
