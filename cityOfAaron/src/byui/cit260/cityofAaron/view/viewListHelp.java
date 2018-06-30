@@ -137,6 +137,7 @@ public class viewListHelp extends MenuView
     }
     //End Chuck Mikolyski
     
+    // Start Jack McBride
     // The viewTools method
     // Purpose: Displays what tools are in the storehouse
     // Parameters: none
@@ -144,9 +145,15 @@ public class viewListHelp extends MenuView
     //========================================================
     public void viewTools()
     {
-        System.out.println("\nThere are tools to use in the Storehouse");
+        ArrayList<ListItem> tools = theGame.getTools();
+        
+        System.out.println("\nHere are the tools available in the storehouse:");
+        
+        for (ListItem i : tools)
+            System.out.println(i.getItemName() + ": " + i.getItemNumber());
+
     }
-    
+    // End Jack McBride
     
     //**start Laura Mazariegos**
     // The viewProvisons method
