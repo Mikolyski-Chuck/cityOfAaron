@@ -120,7 +120,7 @@ public class CropView
             paramsNotOkay = false;
         // Prompt the user to enter how much wheat they would like to use to
         //  plant crops
-        System.out.println("How many crops would you like to plant? ");
+        System.out.println("How many acres would you like to plant? ");
         
         
         
