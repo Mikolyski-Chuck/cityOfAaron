@@ -110,15 +110,51 @@ public class CropView
     // Returns: None
     public static void plantCropsView()
     {
+     
+        {
+        
+        boolean paramsNotOkay;
+        
+    do 
+        {
+            paramsNotOkay = false;
         // Prompt the user to enter how much wheat they would like to use to
         //  plant crops
         System.out.println("How many crops would you like to plant? ");
         
-        // Get the user input and save it
-        int acresPlanted = keyboard.nextInt();
         
-        // Call the plantCrops() method to plant crops to harvest.
+        
+        // Get the user input and save it
+        while (!keyboard.hasNextInt()) 
+        {
+            System.out.println("Please enter a integer.");
+            keyboard.next();
+        }
+        int acresPlanted = keyboard.nextInt();
+            try 
+            {
+              // Call the plantCrops() method to plant crops to harvest.
         CropControl.plantCrops(acresPlanted,cropData);
+            }
+                
+        
+            catch(CropException e)
+            {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+        
+            }
+            
+            
+        
+        }
+        while(paramsNotOkay);
+    
+    
+    
+    
+    }   
     }   
     // End Laura Mazariegos
     
