@@ -10,7 +10,7 @@ package byui.cit260.cityofAaron.exceptions;
 
 /**
  *
- * @author Christine
+ * @author Laura Mazariegos, Jack MacBride, Chuck Mikolyski
  */
 public class CropException extends Exception
 {
