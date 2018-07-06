@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The CropException class file for the cityOfAaron project
+ * Part of the Exception package
+ * Class contains all of the calculation methods for managing crops
+ * CIT-260
+ * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
+ * Date last modified: 07/05/2018
  */
 package byui.cit260.cityofAaron.exceptions;
 
