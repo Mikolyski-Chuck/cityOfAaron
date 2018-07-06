@@ -74,7 +74,7 @@ public class CropControl {
     int population = cropData.getPopulation();
     int acresOwned = cropData.getAcresOwned();
     
-    //if acresToBuy < 0 throw expetion message
+    //if acresToBuy < 0 throw exception message
     if (acresToBuy < 0) {
         throw new CropException("A negative value was input.");
     }
@@ -122,8 +122,6 @@ public class CropControl {
                                      "aside this much wheat to feed the people");
         } 
         
-        
-
         //wheatInStore = wheatInStore – wheatSetAside
         wheatInStore -= wheatSetAside;
         
