@@ -9,7 +9,7 @@ package byui.cit260.cityofAaron.control;
 
 import byui.cit260.cityofAaron.model.CropData;
 import java.util.Random;
-
+import byui.cit260.cityofAaron.exceptions.CropException;
 public class CropControl {
     
     private static final int LAND_BASE = 17;
@@ -67,25 +67,27 @@ public class CropControl {
     // Returns: the amount of land owned after the purchase.
     // Pre-conditions: the number of acres to be bought must be positive
     //     and <= population * 10. Acres to buy * 10 must be <= wheat in store
-    public static int buyLand(int landPrice, int acresToBuy, CropData cropData) {
+    public static void buyLand(int landPrice, int acresToBuy, CropData cropData)throws CropException 
+    {
         
     int wheatInStore = cropData.getWheatInStore();
     int population = cropData.getPopulation();
     int acresOwned = cropData.getAcresOwned();
     
-    //if acresToBuy < 0 return -1
+    //if acresToBuy < 0 throw expetion message
     if (acresToBuy < 0) {
-        return -1;
+        throw new CropException("A negative value was input.");
     }
 
-    //if acresToBuy * landPrice > wheatInStore return -1
+    //if acresToBuy * landPrice > wheatInStore throw exception message
     if (acresToBuy * landPrice > wheatInStore) {
-        return -1;
+        throw new CropException("There is Insufficient wheat to buy this much land.");
     }
 
-    //if population < (acresOwned + acresToBuy) / 10 return -1
+    //if population < (acresOwned + acresToBuy) / 10 throw exception message
     if (population < ((acresOwned + acresToBuy) / 10)) {
-        return -1;
+        throw new CropException("There are not enough people in the city to " + 
+                                "care for that much land.");
     }
 
     //acresOwned = acresOwned + acresToBuy
@@ -95,9 +97,6 @@ public class CropControl {
     //wheatInStore = wheatInStore - (acresToBuy * landPrice)
     wheatInStore -= (acresToBuy * landPrice);
     cropData.setWheatInStore(wheatInStore);
-
-    return acresOwned;
-
     }
     
     // Start Chuck Mikolyski
@@ -105,32 +104,32 @@ public class CropControl {
     // Purpose: Feed the people with bushels of wheat.
     // Parameters: The quantity of bushels of wheat set aside to feed the people, and a reference
     // to a CropData obrject.
-    // Returns: The number of wheat in store after setting aside wheat to feed the people.
+    // Returns: None
     //Pre-conditions: The amount of wheat set aside must be a positive number, and <= the amount 
     // of wheat in store.
-    public static int feedPeople(int wheatSetAside, CropData cropData)
+    public static void feedPeople(int wheatSetAside, CropData cropData) throws CropException
     {
         int wheatInStore = cropData.getWheatInStore();
 
-        //if wheatSetAside < 0  return -1
+        //if wheatSetAside < 0  throw exception message
         if ( wheatSetAside < 0) {
-            return -1;
+            throw new CropException("A negative value was input.");
         }
         
         //if wheatSetAside > wheatInStore return -1
         if (wheatSetAside > wheatInStore) {
-            return -1;
+            throw new CropException ("There is insufficient wheat to set " + 
+                                     "aside this much wheat to feed the people");
         } 
         
+        
+
         //wheatInStore = wheatInStore – wheatSetAside
         wheatInStore -= wheatSetAside;
         
         //save state
         cropData.setWheatForPeople(wheatSetAside);
         cropData.setWheatInStore(wheatInStore);
-        
-        //return wheatInStore
-        return wheatInStore;
     }  
     //End Chuck Mikolyski
     
