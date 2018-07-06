@@ -4,7 +4,7 @@
  * Object of this class manages the main menu
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 12, 2018
+ * Date last modified: July 5, 2018
  */
 package byui.cit260.cityofAaron.view;
 
