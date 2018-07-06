@@ -12,6 +12,7 @@ import byui.cit260.cityofAaron.model.*;
 import byui.cit260.cityofAaron.control.*;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
+import byui.cit260.cityofAaron.exceptions.CropException;
 
 /**
  *
@@ -36,16 +37,49 @@ public class CropView
     // Returns: None
     public static void feedPeopleView()
     {
+        
+        boolean paramsNotOkay;
+        
+    do 
+        {
+            paramsNotOkay = false;
         // Prompt the user to enter how much wheat they would like to set aside
         // to feed the people
         System.out.println("How much wheat would you like to set aside to " + 
                            "feed the people?");
         
-        // Get the user input and save it
-        int wheatSetAside = keyboard.nextInt();
         
-        // Call the feedPeople() method to set aside food to feed the people.
-        CropControl.feedPeople(wheatSetAside, cropData);
+        
+        // Get the user input and save it
+        while (!keyboard.hasNextInt()) 
+        {
+            System.out.println("Please enter a integer.");
+            keyboard.next();
+        }
+        int wheatSetAside = keyboard.nextInt();
+            try 
+            {
+                // Call the feedPeople() method to set aside food to feed the people.
+                CropControl.feedPeople(wheatSetAside, cropData);
+            }
+                
+        
+            catch(CropException e)
+            {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+        
+            }
+            
+            
+        
+        }
+        while(paramsNotOkay);
+    
+    
+    
+    
     }   
     // End Chuck Mikolyski
     
@@ -96,18 +130,33 @@ public class CropView
     {
         // Get the cost of land for this round
         int price = CropControl.calcLandCost();
-        
+        boolean paramsNotOkay;
+
         // Prompt the user to enter the number of acres to buy
         System.out.format("Land is selling for %d bushels per acre %n", price);
-        System.out.println("\nHow many acres of land do you wish to buy?");
-        
         // Get the user's input and save it
-        int toBuy = keyboard.nextInt();
         
-        // Call the buyland() method in the control layer to buy the land
-        CropControl.buyLand(price, toBuy, cropData);
+        do 
+        {
+            paramsNotOkay = false;
+            System.out.println("\nHow many acres of land do you wish to buy?");
+            int toBuy = keyboard.nextInt();
+            try 
+            {
+            // Call the buyland() method in the control layer to buy the land
+            CropControl.buyLand(price, toBuy, cropData);
+            }
+        
+            catch(CropException e)
+            {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+        
+            }
+        }
+        while(paramsNotOkay);
     }
-
     // The runCropsView() method
     // Prupose: Runs the Hamurabi game
     // Parameters: None;
