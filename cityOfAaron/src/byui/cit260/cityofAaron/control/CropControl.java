@@ -160,7 +160,7 @@ public class CropControl {
     //Pre-Conditions: acresOwned must be >=acres to plant. Wheat in store = n 
     //   bushels. 1 bushel of wheat in store = 2 acres of land to plant. Wheat 
     //   store must be >= acres owned * 2.
-    public static int plantCrops(int acresPlanted, CropData cropData)
+    public static int plantCrops(int acresPlanted, CropData cropData)throws CropException
     {
         int acresOwned = cropData.getAcresOwned();
         int wheatInStore = cropData.getWheatInStore();
@@ -169,22 +169,22 @@ public class CropControl {
         
         //If acresToPlant <= 0 return -1
         if (acresPlanted <= 0){
-            return -1;
+            throw new CropException ("Invalid number of Acres to plant.");
         }
         
         //If acresOwned < acresToPlant return -1
         if (acresOwned < acresPlanted){
-            return -1;
+            throw new CropException ("You do not own enough acres to plant.");
         }
         
         //If wheatInStore < 0 return -1
         if (wheatInStore <= 0){
-            return -1;
+            throw new CropException ("You do not have enough wheat in store.");
         }
         
         //If wheatInStore < acresToPlant /2  return -1
         if (wheatInStore < (acresPlanted / 2)){
-            return -1;
+            throw new CropException ("Insufficient number, please try again.");
         }
         
         //WheatInStore - = requiredBushels
