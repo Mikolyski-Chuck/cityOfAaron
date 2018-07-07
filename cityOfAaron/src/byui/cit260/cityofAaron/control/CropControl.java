@@ -105,27 +105,28 @@ public class CropControl {
     // Parameters: The quantity of bushels of wheat set aside to feed the people, and a reference
     // to a CropData obrject.
     // Returns: None
-    //Pre-conditions: The amount of wheat set aside must be a positive number, and <= the amount 
+    // Pre-conditions: The amount of wheat set aside must be a positive number, and <= the amount 
     // of wheat in store.
     public static void feedPeople(int wheatSetAside, CropData cropData) throws CropException
     {
+        // Get wheat in Store.
         int wheatInStore = cropData.getWheatInStore();
 
-        //if wheatSetAside < 0  throw exception message
+        // If wheatSetAside < 0  throw exception message.
         if ( wheatSetAside < 0) {
             throw new CropException("A negative value was input.");
         }
         
-        //if wheatSetAside > wheatInStore return -1
+        // If wheatSetAside > wheatInStore throw exception message.
         if (wheatSetAside > wheatInStore) {
             throw new CropException ("There is insufficient wheat to set " + 
                                      "aside this much wheat to feed the people");
         } 
         
-        //wheatInStore = wheatInStore – wheatSetAside
+        // wheatInStore = wheatInStore – wheatSetAside
         wheatInStore -= wheatSetAside;
         
-        //save state
+        // Save state
         cropData.setWheatForPeople(wheatSetAside);
         cropData.setWheatInStore(wheatInStore);
     }  
