@@ -4,7 +4,7 @@
  * Object of this class manages the main menu
  * CIT-260
  * Team members: Laura Mazariegos, Chuck Mikolyski, Jack McBride
- * Date last modified: June 12, 2018
+ * Date last modified: July 5, 2018
  */
 package byui.cit260.cityofAaron.view;
 
@@ -37,33 +37,36 @@ public class CropView
     // Returns: None
     public static void feedPeopleView()
     {
-        
+        // Create a boolean varaible to control loop.
         boolean paramsNotOkay;
-        
+    
+    // Begin Loop.    
     do 
         {
             paramsNotOkay = false;
         // Prompt the user to enter how much wheat they would like to set aside
-        // to feed the people
+        // to feed the people.
         System.out.println("How much wheat would you like to set aside to " + 
                            "feed the people?");
         
         
         
-        // Get the user input and save it
+        // Get the user input and save it.
+        // Make sure that the user input is a integer.
         while (!keyboard.hasNextInt()) 
         {
             System.out.println("Please enter a integer.");
             keyboard.next();
         }
         int wheatSetAside = keyboard.nextInt();
+            
             try 
             {
                 // Call the feedPeople() method to set aside food to feed the people.
                 CropControl.feedPeople(wheatSetAside, cropData);
             }
                 
-        
+            // Catch and display message thrown from feedPeople() method exception.
             catch(CropException e)
             {
                 System.out.println("I am sorry master, I cannot do this.");
@@ -72,14 +75,8 @@ public class CropView
         
             }
             
-            
-        
         }
         while(paramsNotOkay);
-    
-    
-    
-    
     }   
     // End Chuck Mikolyski
     
@@ -110,15 +107,51 @@ public class CropView
     // Returns: None
     public static void plantCropsView()
     {
+     
+        {
+        
+        boolean paramsNotOkay;
+        
+    do 
+        {
+            paramsNotOkay = false;
         // Prompt the user to enter how much wheat they would like to use to
         //  plant crops
-        System.out.println("How many crops would you like to plant? ");
+        System.out.println("How many acres would you like to plant? ");
+        
+        
         
         // Get the user input and save it
+        while (!keyboard.hasNextInt()) 
+        {
+            System.out.println("Please enter a integer.");
+            keyboard.next();
+        }
         int acresPlanted = keyboard.nextInt();
-        
-        // Call the plantCrops() method to plant crops to harvest.
+            try 
+            {
+              // Call the plantCrops() method to plant crops to harvest.
         CropControl.plantCrops(acresPlanted,cropData);
+            }
+                
+        
+            catch(CropException e)
+            {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+        
+            }
+            
+            
+        
+        }
+        while(paramsNotOkay);
+    
+    
+    
+    
+    }   
     }   
     // End Laura Mazariegos
     

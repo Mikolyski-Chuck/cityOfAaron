@@ -74,7 +74,7 @@ public class CropControl {
     int population = cropData.getPopulation();
     int acresOwned = cropData.getAcresOwned();
     
-    //if acresToBuy < 0 throw expetion message
+    //if acresToBuy < 0 throw exception message
     if (acresToBuy < 0) {
         throw new CropException("A negative value was input.");
     }
@@ -105,29 +105,28 @@ public class CropControl {
     // Parameters: The quantity of bushels of wheat set aside to feed the people, and a reference
     // to a CropData obrject.
     // Returns: None
-    //Pre-conditions: The amount of wheat set aside must be a positive number, and <= the amount 
+    // Pre-conditions: The amount of wheat set aside must be a positive number, and <= the amount 
     // of wheat in store.
     public static void feedPeople(int wheatSetAside, CropData cropData) throws CropException
     {
+        // Get wheat in Store.
         int wheatInStore = cropData.getWheatInStore();
 
-        //if wheatSetAside < 0  throw exception message
+        // If wheatSetAside < 0  throw exception message.
         if ( wheatSetAside < 0) {
             throw new CropException("A negative value was input.");
         }
         
-        //if wheatSetAside > wheatInStore return -1
+        // If wheatSetAside > wheatInStore throw exception message.
         if (wheatSetAside > wheatInStore) {
             throw new CropException ("There is insufficient wheat to set " + 
                                      "aside this much wheat to feed the people");
         } 
         
-        
-
-        //wheatInStore = wheatInStore – wheatSetAside
+        // wheatInStore = wheatInStore – wheatSetAside
         wheatInStore -= wheatSetAside;
         
-        //save state
+        // Save state
         cropData.setWheatForPeople(wheatSetAside);
         cropData.setWheatInStore(wheatInStore);
         System.out.println("\nWheat in store " + wheatInStore);
@@ -161,7 +160,7 @@ public class CropControl {
     //Pre-Conditions: acresOwned must be >=acres to plant. Wheat in store = n 
     //   bushels. 1 bushel of wheat in store = 2 acres of land to plant. Wheat 
     //   store must be >= acres owned * 2.
-    public static int plantCrops(int acresPlanted, CropData cropData)
+    public static int plantCrops(int acresPlanted, CropData cropData)throws CropException
     {
         int acresOwned = cropData.getAcresOwned();
         int wheatInStore = cropData.getWheatInStore();
@@ -170,22 +169,22 @@ public class CropControl {
         
         //If acresToPlant <= 0 return -1
         if (acresPlanted <= 0){
-            return -1;
+            throw new CropException ("Invalid number of Acres to plant.");
         }
         
         //If acresOwned < acresToPlant return -1
         if (acresOwned < acresPlanted){
-            return -1;
+            throw new CropException ("You do not own enough acres to plant.");
         }
         
         //If wheatInStore < 0 return -1
         if (wheatInStore <= 0){
-            return -1;
+            throw new CropException ("You do not have enough wheat in store.");
         }
         
         //If wheatInStore < acresToPlant /2  return -1
         if (wheatInStore < (acresPlanted / 2)){
-            return -1;
+            throw new CropException ("Insufficient number, please try again.");
         }
         
         //WheatInStore - = requiredBushels
