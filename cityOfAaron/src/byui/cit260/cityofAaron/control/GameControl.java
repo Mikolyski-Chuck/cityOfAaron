@@ -66,6 +66,8 @@ public class GameControl {
             ObjectInputStream input = new ObjectInputStream(fips);
             theGame = (Game) input.readObject();
             CityOfAaron.setTheGame(theGame);
+            System.out.println("\nGame loaded.");
+
         }
         catch(Exception e)
         {
@@ -73,7 +75,7 @@ public class GameControl {
         }
     }
     
-      // The saveGame method
+    // The saveGame method
     // Purpose: Save game to disk
     // Parameters: the game, the file path
     // Returns: none
@@ -82,6 +84,8 @@ public class GameControl {
         try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             output.writeObject(theGame);
+            System.out.println("\nGame saved.");
+
         }
         catch(Exception e)
         {
