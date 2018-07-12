@@ -9,8 +9,8 @@
 package byui.cit260.cityofAaron.view;
 import byui.cit260.cityofAaron.control.GameControl;
 import byui.cit260.cityofAaron.model.Game;
-import byui.cit260.cityofAaron.model.Player;
-import byui.cit260.cityofAaron.model.CropData;
+import static byui.cit260.cityofAaron.view.MenuView.keyboard;
+import cityofaaron.CityOfAaron;
 
 
 /**
@@ -112,6 +112,24 @@ public class MainMenuView extends MenuView {
     // =======================================================
     public void startSavedGame()
     {
+        // Get rid of nl character left in the stream
+        keyboard.nextLine();
+        
+        // prompt user and get file path
+        System.out.println("\nPlease type in the file path to save: ");
+        String filepath = keyboard.next();
+        
+        
+        // call the getSavedGame() method in the Game Control class
+        // to load the game
+
+        GameControl.getSavedGame(filepath);
+        
+        // display the game menu for the loaded game
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayMenu();
+        
+        
        System.out.println("\nStart saved game menu option selected.");
 
     }
@@ -134,7 +152,11 @@ public class MainMenuView extends MenuView {
     // =======================================================
     public void displaySaveGameView()
     {
-        System.out.println("\nDisplay save game option selected.");
+        keyboard.nextLine();
+        System.out.println("\nPlease enter file path to saved game");
+        String filepath = keyboard.next();
+        Game theGame = CityOfAaron.getTheGame();
+        GameControl.saveGame(theGame, filepath);
     }
 }
 

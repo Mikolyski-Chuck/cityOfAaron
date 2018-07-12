@@ -130,6 +130,7 @@ public class CropControl {
         //save state
         cropData.setWheatForPeople(wheatSetAside);
         cropData.setWheatInStore(wheatInStore);
+        System.out.println("\nWheat in store " + wheatInStore);
     }  
     //End Chuck Mikolyski
     

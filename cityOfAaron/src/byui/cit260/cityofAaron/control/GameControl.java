@@ -11,6 +11,10 @@ package byui.cit260.cityofAaron.control;
 import java.util.ArrayList;
 import cityofaaron.CityOfAaron;
 import byui.cit260.cityofAaron.model.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 
 /**
@@ -49,6 +53,41 @@ public class GameControl {
     createMap();
     
     }    
+    
+    // The getSavedGame method
+    // Purpose: load a saved game from disk
+    // Parameters: the file path
+    // Returns: none
+    // Side Effect: the game reference in the driver is updated
+    public static void getSavedGame(String filePath) {
+        Game theGame = null;
+        
+        try (FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            theGame = (Game) input.readObject();
+            CityOfAaron.setTheGame(theGame);
+        }
+        catch(Exception e)
+        {
+            System.out.println("\nThere was an error reading the saved game file");
+        }
+    }
+    
+      // The saveGame method
+    // Purpose: Save game to disk
+    // Parameters: the game, the file path
+    // Returns: none
+    public static void saveGame(Game theGame, String filePath) {
+        
+        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(theGame);
+        }
+        catch(Exception e)
+        {
+            System.out.println("\nThere was an error writing the  game file");
+        }
+    }
 
 
 
