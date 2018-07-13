@@ -172,7 +172,7 @@ public class viewListHelp extends MenuView
         
         // Start the loop to iterate through the ArrayList
         for (ListItem i : provisions)
-        // Print the Name and quantity of animals in the ArrayList.
+        // Print the Name and quantity of provisions in the ArrayList.
         System.out.println(i.getItemName() + ": " + i.getItemNumber());
     }
     //**end Laura Mazariegos**
