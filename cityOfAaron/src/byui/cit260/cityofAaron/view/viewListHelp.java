@@ -10,6 +10,7 @@ package byui.cit260.cityofAaron.view;
 import byui.cit260.cityofAaron.model.*;
 import java.util.ArrayList;
 import cityofaaron.CityOfAaron;
+import java.io.PrintWriter;
 /**
  *
  * @author Laura Mazariegos
@@ -17,6 +18,8 @@ import cityofaaron.CityOfAaron;
 public class viewListHelp extends MenuView
 {
     Game theGame = CityOfAaron.getTheGame();
+    
+    private static PrintWriter output = null;
     /*private String theList;
     private int max;
     Scanner keyboard = new Scanner(System.in);
@@ -56,10 +59,10 @@ public class viewListHelp extends MenuView
                 "**************************\n" +
                 "* LIST MENU *\n" +
                 "**************************\n" +
-                " 1 - List or view the animals in the storehouse\n" +
-                " 2 - List or view the tools in the storehouse?\n" +
-                " 3 - List or view the provisions in the storehouse?\n" +
-                " 4 - List or view the authors of this game?\n" +
+                " 1 - View or print a list of the animals in the storehouse\n" +
+                " 2 - View or print a list of the tools in the storehouse\n" +
+                " 3 - View or print a list of the provisions in the storehouse\n" +
+                " 4 - View or print a list of the authors of this game\n" +
                 " 5 - Back to the Main Menu",
                 5);
     }
@@ -123,17 +126,69 @@ public class viewListHelp extends MenuView
     // =======================================================
     public void viewAnimals()
     {  
+        
         // Create the animals variable ArrayList and store the current
         // type and amount of animals in the list.
         ArrayList<ListItem> animals = theGame.getAnimals();
-        
-        // Display the opening sentence
+        boolean run = true;
+        System.out.println("Please press 1 to view or 2 to print the list.");
+        while (!keyboard.hasNextInt()) 
+        {
+           System.out.println("Please put in an integer");  
+            keyboard.next();
+        }
+
+        int userInput = keyboard.nextInt();
+        //If user input is 1, display the list of animals in the store house.
+        if (userInput == 1) {
+            
+            // Display the opening sentence
         System.out.println("\nHere are the quantities of animals in the storehouse");
         
         // Start the loop to iterate through the ArrayList
         for (ListItem i : animals)
         // Print the Name and quantity of animals in the ArrayList.
         System.out.println(i.getItemName() + ": " + i.getItemNumber());
+        }    
+            
+        if (userInput == 2){    
+            
+            
+            System.out.print("Print option selected.");
+            keyboard.nextLine();
+            
+            //prompt the user for a fle name. get and save the users input
+            //declare a string to hold the file name
+            String filePath = keyboard.next();
+            System.out.println("Please enter a file name.");
+            
+            try {
+                //create the PrinterWriter object
+                output = new PrintWriter(filePath);
+                
+                
+                //output a heading for the report
+                output.println("List of type and quantity of animals in the storehouse.");
+                
+                //use a for loop to get the data from the ArrayList
+                //and output it
+                for (ListItem i : animals)
+                // Print the Name and quantity of animals in the ArrayList.
+                output.println(i.getItemName() + ": " + i.getItemNumber());
+            }
+            
+            catch (Exception e){
+                //output error message
+                System.out.println("There was an error printing the list.");
+            }
+            finally {
+                //if (output!= null) close the file
+                if (output != null) {
+                        output.close();
+                }
+            }
+        
+        }
     }
     //End Chuck Mikolyski
     
@@ -172,7 +227,7 @@ public class viewListHelp extends MenuView
         
         // Start the loop to iterate through the ArrayList
         for (ListItem i : provisions)
-        // Print the Name and quantity of animals in the ArrayList.
+        // Print the Name and quantity of provisions in the ArrayList.
         System.out.println(i.getItemName() + ": " + i.getItemNumber());
     }
     //**end Laura Mazariegos**
