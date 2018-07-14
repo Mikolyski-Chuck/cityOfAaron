@@ -94,25 +94,25 @@ public class viewListHelp extends MenuView
     
     // The doAction method
     // Purpose: performs the selected action
-    // Parameters: none
+    // Parameters: int option
     // Returns: none
     // =======================================================
     @Override public void doAction(int option)
     {
-        switch(option)
-        {
+        OUTER:
+        switch (option) {
             case 1: // if the option is 1, check to see if user wants to view or save
                 System.out.println("Please press 1 to view the list or 2 to save the list.");
-               while (!keyboard.hasNextInt()) {
-                System.out.println("Please put in an integer");  
-                keyboard.next();
+                while (!keyboard.hasNextInt()) {
+                    System.out.println("Please put in an integer");
+                    keyboard.next();
                 }
 
                 int userInput = keyboard.nextInt();
                 
                 if (userInput == 1){
-                viewAnimals();    
-                break;
+                    viewAnimals();
+                    break;
                 }
                 else if (userInput == 2) {
                     saveAnimals();
@@ -123,19 +123,33 @@ public class viewListHelp extends MenuView
                     System.out.println("That is not a valid option. returning to menu.");
                 }
                 break;
-            
-            
             case 2: // if the option is 2, call viewTools()
                 viewTools();
                 break;
-            case 3: // if the option is 3, call viewProvisons()
-                viewProvisions();
+            case 3:
+                System.out.println("Please press 1 to view available provisions or 2 to save current provisions.");
+                while (!keyboard.hasNextInt()) {
+                    System.out.println("Please select 1 or 2 ");
+                    keyboard.next();
+                }
+                userInput = keyboard.nextInt();
+                
+                switch (userInput) {
+                    case 1:
+                        viewProvisions();
+                        break OUTER;
+                    case 2:
+                        saveProvisions();
+                        break OUTER;
+                    default:
+                        System.out.println("That is not a valid option, Returning to menu.");
+                        break;
+                }
                 break;
             case 4: // if the option is 4, call viewAuthors()
                 viewAuthors();
                 break;
-            case 5: // if the option is 5, return to main menu
-                // mainMenuReturn();               
+            case 5:
         }
     }
     
@@ -178,7 +192,7 @@ public class viewListHelp extends MenuView
             String filePath;
             
             //declare a reference to the PrintWriter object
-            PrintWriter output = null;
+              PrintWriter output = null;
             
             //prompt the user for a fle name. get and save the users input
             System.out.println("\nPlease enter a file name:");
@@ -236,6 +250,7 @@ public class viewListHelp extends MenuView
             System.out.println(i.getItemName() + ": " + i.getItemNumber());
 
     }
+    
     // End Jack McBride
     
     //**start Laura Mazariegos**
@@ -257,6 +272,62 @@ public class viewListHelp extends MenuView
         for (ListItem i : provisions)
         // Print the Name and quantity of provisions in the ArrayList.
         System.out.println(i.getItemName() + ": " + i.getItemNumber());
+    }
+    
+    // The saveProvisions method
+    // Purpose: saves a list of provisions in the storehouse to disk
+    // Parameters: none
+    // Returns: none
+    // =======================================================
+     public void saveProvisions() {
+        
+        
+        System.out.print("Save option selected.");
+            keyboard.nextLine();
+            
+            //declare a string to hold the file name
+            String filePath;
+            
+            //declare a reference to the PrintWriter object
+              PrintWriter output = null;
+            
+            //prompt the user for a fle name. Get and save the users input
+            System.out.println("\nPlease enter a file name to save provisions:");
+            filePath = keyboard.next();
+            
+            
+            try {
+                //create the PrinterWriter object
+                output = new PrintWriter(filePath);
+                
+                //get a reference to the ArrayList to output
+                ArrayList<ListItem> provisions = theGame.getProvisions();
+                
+                //output a heading for the report
+                output.println("Available Provisions in the Storehouse");
+                output.printf("%n%-13s%-10s", "Type", "Quantity");
+   
+                //use a for loop to get the data from the ArrayList
+                //and output it
+                for (ListItem i : provisions){
+                output.printf("%n%-10s%-3s%-5d"
+                                                , i.getItemName ()  
+                                                , ":"
+                                                , i.getItemNumber());
+                }
+                System.out.println("List saved.");
+            }
+            
+            catch (Exception e){
+                //output error message
+                System.out.println("There was an error printing the list.");
+            }
+            finally {
+                //if (output!= null) close the file
+                if (output != null) {
+                        output.close();
+                }
+            }
     }
     //**end Laura Mazariegos**
     
