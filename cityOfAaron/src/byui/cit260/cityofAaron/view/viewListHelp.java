@@ -19,7 +19,7 @@ public class viewListHelp extends MenuView
 {
     Game theGame = CityOfAaron.getTheGame();
     
-    private static PrintWriter output = null;
+    
     /*private String theList;
     private int max;
     Scanner keyboard = new Scanner(System.in);
@@ -101,9 +101,30 @@ public class viewListHelp extends MenuView
     {
         switch(option)
         {
-            case 1: // if the option is 1, call viewAnimals()
-                viewAnimals();
+            case 1: // if the option is 1, check to see if user wants to view or save
+                System.out.println("Please press 1 to view the list or 2 to save the list.");
+               while (!keyboard.hasNextInt()) {
+                System.out.println("Please put in an integer");  
+                keyboard.next();
+                }
+
+                int userInput = keyboard.nextInt();
+                
+                if (userInput == 1){
+                viewAnimals();    
                 break;
+                }
+                else if (userInput == 2) {
+                    saveAnimals();
+                    break;
+                }
+                
+                else {
+                    System.out.println("That is not a valid option. returning to menu.");
+                }
+                break;
+            
+            
             case 2: // if the option is 2, call viewTools()
                 viewTools();
                 break;
@@ -130,52 +151,59 @@ public class viewListHelp extends MenuView
         // Create the animals variable ArrayList and store the current
         // type and amount of animals in the list.
         ArrayList<ListItem> animals = theGame.getAnimals();
-        
-        System.out.println("Please press 1 to view the list or 2 to save the list.");
-        while (!keyboard.hasNextInt()) 
-        {
-            System.out.println("Please put in an integer");  
-            keyboard.next();
-        }
-
-        int userInput = keyboard.nextInt();
-        //If user input is 1, display the list of animals in the store house.
-        if (userInput == 1) {
+      
             
-            // Display the opening sentence
+        // Display the opening sentence
         System.out.println("\nHere are the quantities of animals in the storehouse");
         
         // Start the loop to iterate through the ArrayList
         for (ListItem i : animals)
         // Print the Name and quantity of animals in the ArrayList.
         System.out.println(i.getItemName() + ": " + i.getItemNumber());
-        }    
-            
-        if (userInput == 2){    
-            
-            
-            System.out.print("Save option selected.");
+   
+    }
+    
+    // The saveAnimals method
+    // Purpose: saves a list of animals in the store house to disk
+    // Parameters: none
+    // Returns: none
+    // =======================================================
+    public void saveAnimals() {
+        
+        
+        System.out.print("Save option selected.");
             keyboard.nextLine();
             
-            //prompt the user for a fle name. get and save the users input
             //declare a string to hold the file name
+            String filePath;
+            
+            //declare a reference to the PrintWriter object
+            PrintWriter output = null;
+            
+            //prompt the user for a fle name. get and save the users input
             System.out.println("\nPlease enter a file name:");
-            String filePath = keyboard.next();
+            filePath = keyboard.next();
             
             
             try {
                 //create the PrinterWriter object
                 output = new PrintWriter(filePath);
                 
+                //get a reference to the ArrayList to output
+                ArrayList<ListItem> animals = theGame.getAnimals();
                 
                 //output a heading for the report
-                output.println("List of type and quantity of animals in the storehouse.");
-                
+                output.println("Animals in the Storehouse");
+                output.printf("%n%-13s%-10s", "Type", "Quantity");
+   
                 //use a for loop to get the data from the ArrayList
                 //and output it
-                for (ListItem i : animals)
-                // Print the Name and quantity of animals in the ArrayList.
-                output.println(i.getItemName() + ": " + i.getItemNumber());
+                for (ListItem i : animals){
+                output.printf("%n%-10s%-3s%-5d"
+                                                , i.getItemName ()  
+                                                , ":"
+                                                , i.getItemNumber());
+                }
                 System.out.println("List saved.");
             }
             
@@ -189,8 +217,6 @@ public class viewListHelp extends MenuView
                         output.close();
                 }
             }
-        
-        }
     }
     //End Chuck Mikolyski
     
