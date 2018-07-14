@@ -269,9 +269,10 @@ public class viewListHelp extends MenuView
         System.out.println("\nHere are the provisions available in the storehouse");
         
         // Start the loop to iterate through the ArrayList
-        for (ListItem i : provisions)
-        // Print the Name and quantity of provisions in the ArrayList.
-        System.out.println(i.getItemName() + ": " + i.getItemNumber());
+        provisions.forEach((i) -> {
+            // Print the Name and quantity of provisions in the ArrayList.
+            System.out.println(i.getItemName() + ": " + i.getItemNumber());
+        });
     }
     
     // The saveProvisions method
