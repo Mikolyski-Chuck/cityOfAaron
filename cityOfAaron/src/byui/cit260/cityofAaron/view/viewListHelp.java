@@ -59,10 +59,10 @@ public class viewListHelp extends MenuView
                 "**************************\n" +
                 "* LIST MENU *\n" +
                 "**************************\n" +
-                " 1 - View or print a list of the animals in the storehouse\n" +
-                " 2 - View or print a list of the tools in the storehouse\n" +
-                " 3 - View or print a list of the provisions in the storehouse\n" +
-                " 4 - View or print a list of the authors of this game\n" +
+                " 1 - View or save a list of the animals in the storehouse\n" +
+                " 2 - View or save a list of the tools in the storehouse\n" +
+                " 3 - View or save a list of the provisions in the storehouse\n" +
+                " 4 - View or save a list of the authors of this game\n" +
                 " 5 - Back to the Main Menu",
                 5);
     }
@@ -130,11 +130,11 @@ public class viewListHelp extends MenuView
         // Create the animals variable ArrayList and store the current
         // type and amount of animals in the list.
         ArrayList<ListItem> animals = theGame.getAnimals();
-        boolean run = true;
-        System.out.println("Please press 1 to view or 2 to print the list.");
+        
+        System.out.println("Please press 1 to view the list or 2 to save the list.");
         while (!keyboard.hasNextInt()) 
         {
-           System.out.println("Please put in an integer");  
+            System.out.println("Please put in an integer");  
             keyboard.next();
         }
 
@@ -154,13 +154,14 @@ public class viewListHelp extends MenuView
         if (userInput == 2){    
             
             
-            System.out.print("Print option selected.");
+            System.out.print("Save option selected.");
             keyboard.nextLine();
             
             //prompt the user for a fle name. get and save the users input
             //declare a string to hold the file name
+            System.out.println("\nPlease enter a file name:");
             String filePath = keyboard.next();
-            System.out.println("Please enter a file name.");
+            
             
             try {
                 //create the PrinterWriter object
@@ -175,6 +176,7 @@ public class viewListHelp extends MenuView
                 for (ListItem i : animals)
                 // Print the Name and quantity of animals in the ArrayList.
                 output.println(i.getItemName() + ": " + i.getItemNumber());
+                System.out.println("List saved.");
             }
             
             catch (Exception e){
