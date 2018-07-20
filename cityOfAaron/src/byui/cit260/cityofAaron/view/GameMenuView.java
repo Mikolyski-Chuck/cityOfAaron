@@ -99,8 +99,7 @@ public class GameMenuView extends MenuView {
         // start the for loop for the rows
         for ( int i = 0; i < 5; i++){
             
-            //loop through the columns to fill the first row
-            if (i == 0){
+            
                 //loop through the row's columns and get the symbols 
                 for ( int j = 0; j < 5; j++){
                     Location loc = map.getLocation(i, j);
@@ -110,84 +109,16 @@ public class GameMenuView extends MenuView {
                     
                     //fill the row with the symbols
                     row = row + symbol;
-            
                 }
-            //display the first row
-            System.out.println("0 " + row + " |");
-            
-            }
-            
-            //loop through columns to fill the second row
-            if (i == 1){
-                //clear the value of the row variable
-                row = "";
-                //loop through the row's columns and get the symbols
-                for ( int j = 0; j < 5; j++){
-                    Location loc = map.getLocation(i, j);
-                    symbol = " | " + loc.getSymbol();
-                    
-                    //fill the row with the symbols
-                    row = row + symbol;
-            
-                }
-            //display the second row
-            System.out.println("1 " + row + " |");
-            }
-            
-            //loop through the columns to fill the third row
-            if (i == 2){
                 
-                //clear the value of the row variable
+                //display the row
+                    System.out.println(i + " " + row + " |");
                 row = "";
-                //loop through the row's columns and get the symbols
-                for ( int j = 0; j < 5; j++){
-                    Location loc = map.getLocation(i, j);
-                    symbol = " | " + loc.getSymbol();
-                    
-                    //fill the row with symbols
-                    row = row + symbol;
             
-                }
-            //display the third row
-            System.out.println("2 " + row + " |");
             }
             
-            //loop through the columns to fill the fourth row
-            if (i == 3){
-                //clear the value of the row variable
-                row = "";
-                //loop through the row's columns and get the symbols
-                for ( int j = 0; j < 5; j++){
-                    Location loc = map.getLocation(i, j);
-                    symbol = " | " + loc.getSymbol();
-                    
-                    //fill the row with symbols
-                    row = row + symbol;
             
-                }
-            //display the fourth row
-            System.out.println("3 " + row + " |");
-            }
-        
-            //loop through the columns to fill the fifth row
-            if (i == 4){
-                
-                //clear the value of the row variable
-                row = "";
-                //loop through the row's columns and get the symbols
-                for ( int j = 0; j < 5; j++){
-                    Location loc = map.getLocation(i, j);
-                    symbol = " | " + loc.getSymbol();
-                    
-                    //fill the row with symbols
-                    row = row + symbol;
-            
-                }
-            
-            //display the fifth row
-            System.out.println("4 " + row + " |");
-            }
-        }
+           
     }
     //End Chuck Mikolyski
     
