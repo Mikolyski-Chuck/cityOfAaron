@@ -7,6 +7,12 @@
  * Date last modified: June 27, 2018
  */
 package byui.cit260.cityofAaron.view;
+
+
+import cityofaaron.CityOfAaron;
+import byui.cit260.cityofAaron.model.*;
+
+
 /**
  *
  * @author Jack McBride
@@ -30,7 +36,7 @@ public class GameMenuView extends MenuView {
                 " 2 - View/Print a list\n" +
                 " 3 - Move to a new location\n" +
                 " 4 - Manage the Crops\n" +
-                " 5 - Return to the Main Menu\n", 5);
+                " 5 - Return to the Main Menu\n", 5);                
     }
     
     // The doAction method
@@ -54,11 +60,11 @@ public class GameMenuView extends MenuView {
             case 4: // if the option is 4, call manageCrops()
                 manageCrops();
                 break;
-            case 5: // if the option is 5, return to main menu
-                
+            case 5: // if the option is 5, return to main menu    
         }
     }
     
+    //Start Chuck Mikolyski
     // The viewMap method
     // Purpose: Displays the map
     // Parameters: none
@@ -66,10 +72,125 @@ public class GameMenuView extends MenuView {
     // =======================================================
     public void viewMap()
     {
-        System.out.println("\nView map menu option selected");
+        //get a reference to the game
+        Game theGame = CityOfAaron.getTheGame();
         
+        //get the map
+        Map map = theGame.getTheMap();
         
+        //declare a variable to hold the value of the map symbols
+        String symbol;
+        
+        //declare a variable to hold the value of the map rows.
+        String row = "";
+        
+        //display the map explanation
+        System.out.println("\nThis is the city of Aaron map." +
+                           "\n--- is the symbol for the plains." +
+                           "\nTTT is the symbol for the forrests." +
+                           "\n~~~ is the symbol for the river." +
+                           "\nAAA is the symbol for the city." +
+                           "\n(i)(i)(i) is the symbol for the farmland." +
+                           "\n000 is the symbol for the swamps.\n" +
+                           "\n \n                  Map\n" +
+                           "\n      0     1     2        3        4 ");
+                           
+                           
+        // start the for loop for the rows
+        for ( int i = 0; i < 5; i++){
+            
+            //loop through the columns to fill the first row
+            if (i == 0){
+                //loop through the row's columns and get the symbols 
+                for ( int j = 0; j < 5; j++){
+                    Location loc = map.getLocation(i, j);
+                    
+                    //get the location symbols
+                    symbol = " | " + loc.getSymbol();
+                    
+                    //fill the row with the symbols
+                    row = row + symbol;
+            
+                }
+            //display the first row
+            System.out.println("0 " + row + " |");
+            
+            }
+            
+            //loop through columns to fill the second row
+            if (i == 1){
+                //clear the value of the row variable
+                row = "";
+                //loop through the row's columns and get the symbols
+                for ( int j = 0; j < 5; j++){
+                    Location loc = map.getLocation(i, j);
+                    symbol = " | " + loc.getSymbol();
+                    
+                    //fill the row with the symbols
+                    row = row + symbol;
+            
+                }
+            //display the second row
+            System.out.println("1 " + row + " |");
+            }
+            
+            //loop through the columns to fill the third row
+            if (i == 2){
+                
+                //clear the value of the row variable
+                row = "";
+                //loop through the row's columns and get the symbols
+                for ( int j = 0; j < 5; j++){
+                    Location loc = map.getLocation(i, j);
+                    symbol = " | " + loc.getSymbol();
+                    
+                    //fill the row with symbols
+                    row = row + symbol;
+            
+                }
+            //display the third row
+            System.out.println("2 " + row + " |");
+            }
+            
+            //loop through the columns to fill the fourth row
+            if (i == 3){
+                //clear the value of the row variable
+                row = "";
+                //loop through the row's columns and get the symbols
+                for ( int j = 0; j < 5; j++){
+                    Location loc = map.getLocation(i, j);
+                    symbol = " | " + loc.getSymbol();
+                    
+                    //fill the row with symbols
+                    row = row + symbol;
+            
+                }
+            //display the fourth row
+            System.out.println("3 " + row + " |");
+            }
+        
+            //loop through the columns to fill the fifth row
+            if (i == 4){
+                
+                //clear the value of the row variable
+                row = "";
+                //loop through the row's columns and get the symbols
+                for ( int j = 0; j < 5; j++){
+                    Location loc = map.getLocation(i, j);
+                    symbol = " | " + loc.getSymbol();
+                    
+                    //fill the row with symbols
+                    row = row + symbol;
+            
+                }
+            
+            //display the fifth row
+            System.out.println("4 " + row + " |");
+            }
+        }
     }
+    //End Chuck Mikolyski
+    
     
     // The viewList method
     // Purpose: Provides the user with a set list of options
@@ -106,5 +227,4 @@ public class GameMenuView extends MenuView {
         CropView.runCropsView();
     }
   
-
 }
