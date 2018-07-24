@@ -97,6 +97,7 @@ public class CropControl {
     //wheatInStore = wheatInStore - (acresToBuy * landPrice)
     wheatInStore -= (acresToBuy * landPrice);
     cropData.setWheatInStore(wheatInStore);
+    System.out.println("\nWheat in store " + wheatInStore);
     }
     
     // Start Chuck Mikolyski

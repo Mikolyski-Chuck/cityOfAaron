@@ -5,6 +5,7 @@
  */
 package cityofaaron;
 
+import byui.cit260.cityofAaron.model.CropData;
 import byui.cit260.cityofAaron.view.*;
 import byui.cit260.cityofAaron.model.Game;
 //import byui.cit260.cityofAaron.model.Player;
@@ -16,6 +17,7 @@ public class CityOfAaron {
     
     //Create the Game object, save it in the main driver file
     private static Game theGame = new Game();
+   // private static CropData year;
 
     public static Game getTheGame() {
         return theGame;
@@ -118,4 +120,19 @@ public class CityOfAaron {
 //        // End Jack's code
 
     }
+    private static CropData Year = new CropData();
+    
+   
+    public static CropData getYear() {
+        return Year;
+    }
+
+    public static void setYear(CropData theYear) {
+        CropData.setYear = Year;
+        
+    }
+
+    //public static void getYear(CropData theYear) {
+      //  CityOfAaron.year = theYear;
+    //}
 }

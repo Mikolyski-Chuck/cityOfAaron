@@ -6,6 +6,8 @@
 
 package byui.cit260.cityofAaron.model;
 
+
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,12 @@ import java.io.Serializable;
  * @author jackmcbride
  */
 public class CropData implements Serializable {
+
+    public static CropData setYear;
+
+  
+
+
 
     public CropData() {
     }
@@ -35,9 +43,9 @@ public class CropData implements Serializable {
     private int wheatForPeople;
 
     public int getYear() {
-        return year;
+        return year;       
     }
-
+    
     public int getPopulation() {
         return population;
     }
@@ -99,7 +107,7 @@ public class CropData implements Serializable {
     }
 
     public void setYear(int year) {
-        this.year = year;
+       this.year = year;
     }
 
     public void setPopulation(int population) {
@@ -162,9 +170,21 @@ public class CropData implements Serializable {
         this.wheatForPeople = wheatForPeople;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
-        return "CropData{" + "year=" + year + ", population=" + population + ", acresOwned=" + acresOwned + ", cropYield=" + cropYield + ", wheatInStore=" + wheatInStore + ", numberWhoDied=" + numberWhoDied + ", newPeople=" + newPeople + ", harvest=" + harvest + ", harvestAfterOffering=" + harvestAfterOffering + ", offering=" + offering + ", offeringBushels=" + offeringBushels + ", peopleFed=" + peopleFed + ", acresPlanted=" + acresPlanted + ", numStarved=" + numStarved + ", eatenByRats=" + eatenByRats + ", wheatForPeople=" + wheatForPeople + '}';
+        return "CropData{" + "year=" + year + ", population=" + population + 
+                ", acresOwned=" + acresOwned + ", cropYield=" + cropYield + 
+                ", wheatInStore=" + wheatInStore + ", numberWhoDied=" + numberWhoDied + 
+                ", newPeople=" + newPeople + ", harvest=" + harvest + 
+                ", harvestAfterOffering=" + harvestAfterOffering + 
+                ", offering=" + offering + ", offeringBushels=" + offeringBushels + 
+                ", peopleFed=" + peopleFed + ", acresPlanted=" + acresPlanted + 
+                ", numStarved=" + numStarved + ", eatenByRats=" + eatenByRats + 
+                ", wheatForPeople=" + wheatForPeople + '}';
     }
     
     

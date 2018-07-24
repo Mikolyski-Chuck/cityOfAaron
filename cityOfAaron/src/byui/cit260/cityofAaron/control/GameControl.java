@@ -42,7 +42,6 @@ public class GameControl {
     
     //Create the CropData object
     createCropDataObject();
-    
     //Create the list of animals
     createAnimalList();
     //Create the list of tools
@@ -53,6 +52,7 @@ public class GameControl {
     createMap();
     
     }    
+    
     
     // The getSavedGame method
     // Purpose: load a saved game from disk

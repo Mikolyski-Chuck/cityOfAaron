@@ -8,11 +8,15 @@
  */
 package byui.cit260.cityofAaron.view;
 
+import java.util.*;
+import java.lang.*;
 import byui.cit260.cityofAaron.model.*;
 import byui.cit260.cityofAaron.control.*;
 import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import byui.cit260.cityofAaron.exceptions.CropException;
+import byui.cit260.cityofAaron.model.CropData;
+
 
 /**
  *
@@ -28,6 +32,14 @@ public class CropView
     // Get references to the Game object and the CropData object
     private static Game theGame = CityOfAaron.getTheGame();
     private static CropData cropData = theGame.getCropData();
+    private static CropData theYear = theGame.getCropData();
+    private static CropData Year = CropData.setYear;
+    
+   
+    
+ 
+   
+   
     
     // Start Chuck Mikolyski
     // The feedPeopleView() method
@@ -133,18 +145,14 @@ public class CropView
               // Call the plantCrops() method to plant crops to harvest.
         CropControl.plantCrops(acresPlanted,cropData);
             }
-                
-        
+                 
             catch(CropException e)
             {
                 System.out.println("I am sorry master, I cannot do this.");
                 System.out.println(e.getMessage());
                 paramsNotOkay = true;
-        
             }
-            
-            
-        
+                         
         }
         while(paramsNotOkay);
     
@@ -196,7 +204,7 @@ public class CropView
     // Returns: None;
     public static void runCropsView()
     {
-     
+            
         // Call the buyLandView() Method
         buyLandView();
         
@@ -213,6 +221,32 @@ public class CropView
         setOfferingView();
         
         // Add calls to the other crop view methods as they are written
+     
+       // CropData cropData;
+        //cropData = CityOfAaron.getYear();
+        //System.out.println("The current year of reign is"+ year);
+        //int year;
+  
+        theYear = new CropData();
+        CityOfAaron.getYear();
+        CityOfAaron.setYear(theYear);
+        //CropData.setYear = Year;
+        //int year = CropData.getYear();
+        //CropData.setYear(year);
+        int year = 0;
+        int reign = year + 1;
+        
+        System.out.println("The current year of reign is "+ reign );
+        
+        if (reign == 10){
+            System.out.println(" Thank you for serving your people faithfully" +
+                    "you will be revered for many years to come!");
+            System.exit(0);
+        }
+        //CropData.getYear(year);
     }
 
 }
+
+    
+    
