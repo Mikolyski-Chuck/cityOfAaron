@@ -222,28 +222,33 @@ public class CropView
         
         // Add calls to the other crop view methods as they are written
      
-       // CropData cropData;
-        //cropData = CityOfAaron.getYear();
-        //System.out.println("The current year of reign is"+ year);
-        //int year;
+       
   
-        theYear = new CropData();
-        CityOfAaron.getYear();
-        CityOfAaron.setYear(theYear);
-        //CropData.setYear = Year;
-        //int year = CropData.getYear();
-        //CropData.setYear(year);
-        int year = 0;
-        int reign = year + 1;
+        int year = cropData.getYear();
+        //int numStarved = cropData.getNumStarved();
+        //int population = cropData.getPopulation();
+        //int acresOwned = cropData.getAcresOwned();
+        //int acresToBuy = cropData.
+        year = year + 1;
         
-        System.out.println("The current year of reign is "+ reign );
+        System.out.println("The current year of reign is "+ year );
         
-        if (reign == 10){
-            System.out.println(" Thank you for serving your people faithfully" +
+        if (year == 10){
+            System.out.println(" Thank you for serving your people faithfully, " +
                     "you will be revered for many years to come!");
             System.exit(0);
         }
-        //CropData.getYear(year);
+        
+        //else if(population < 95){
+                
+           // System.out.println("You have failed at taking care of the people, "+
+            //        "too many citizens have starved and you will be lynched by the"+
+            //        " people. May God have mercy on your soul!");
+           // System.exit(0);
+       // }
+       cropData.setYear(year);
+       
+       //cropData.setPopulation(population);
     }
 
 }

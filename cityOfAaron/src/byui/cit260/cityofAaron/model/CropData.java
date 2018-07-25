@@ -16,16 +16,14 @@ import java.io.Serializable;
  */
 public class CropData implements Serializable {
 
+    public static CropData getYear;
     public static CropData setYear;
-
-  
-
-
-
+    //public static CropData theYear;
+    
     public CropData() {
     }
     
-    private int year;
+    private static int year;
     private int population;
     private int acresOwned;
     private int cropYield;

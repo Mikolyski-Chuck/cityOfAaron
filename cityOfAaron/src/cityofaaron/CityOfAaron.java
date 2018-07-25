@@ -120,19 +120,19 @@ public class CityOfAaron {
 //        // End Jack's code
 
     }
-    private static CropData Year = new CropData();
+    //private static CropData Year = new CropData();
     
    
-    public static CropData getYear() {
-        return Year;
+    //public static CropData getYear() {
+      //  return Year;
     }
 
-    public static void setYear(CropData theYear) {
-        CropData.setYear = Year;
+    //public static void setYear(CropData theYear) {
+      //  CropData.setYear = Year;
         
-    }
+    //}
 
     //public static void getYear(CropData theYear) {
       //  CityOfAaron.year = theYear;
     //}
-}
+//}
