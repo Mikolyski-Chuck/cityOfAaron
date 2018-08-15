@@ -102,7 +102,7 @@ public class GameControl {
     public static void createCropDataObject()
     {
         CropData theCrops = new CropData();
-        
+                        
         theCrops.setYear(0);
         theCrops.setPopulation(100);
         theCrops.setNewPeople(5);
@@ -115,6 +115,7 @@ public class GameControl {
         theCrops.setHarvest(3000);
         theCrops.setOfferingBushels(300);
         theCrops.setAcresPlanted(1000);
+        
         
         theGame.setCropData(theCrops);
     

@@ -16,6 +16,8 @@ import java.util.Scanner;
 import cityofaaron.CityOfAaron;
 import byui.cit260.cityofAaron.exceptions.CropException;
 import byui.cit260.cityofAaron.model.CropData;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 
 /**
@@ -75,7 +77,7 @@ public class CropView
             try 
             {
                 // Call the feedPeople() method to set aside food to feed the people.
-                CropControl.feedPeople(wheatSetAside, cropData);
+                    CropControl.feedPeople(wheatSetAside, cropData);
             }
                 
             // Catch and display message thrown from feedPeople() method exception.
@@ -198,12 +200,31 @@ public class CropView
         }
         while(paramsNotOkay);
     }
+    
+    // The cropReportView() method
+    // Purpose: Prints out basic crop data
+    // Parameters: None;
+    // Returns: None;
+    public static void cropReportView()
+    {
+        // Show relevant CropData to add context to player's next choices.
+        
+        System.out.println("Crop Report:");
+    
+        for (ListItem i : cropData.getReport() )
+        // Print the Name and quantity of crop data items in the ArrayList.
+        System.out.println(i.getItemName() + ": " + i.getItemNumber());
+    }
+    
     // The runCropsView() method
-    // Prupose: Runs the Hamurabi game
+    // Purpose: Runs the Hamurabi game
     // Parameters: None;
     // Returns: None;
     public static void runCropsView()
     {
+        
+        // Call the cropsReportView() Method
+        cropReportView();
             
         // Call the buyLandView() Method
         buyLandView();

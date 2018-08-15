@@ -124,7 +124,25 @@ public class viewListHelp extends MenuView
                 }
                 break;
             case 2: // if the option is 2, call viewTools()
-                viewTools();
+                 System.out.println("Please press 1 to view available tools,"
+                         + " or 2 to save current tools.");
+                while (!keyboard.hasNextInt()) {
+                    System.out.println("Please select 1 or 2 ");
+                    keyboard.next();
+                }
+                userInput = keyboard.nextInt();
+                
+                switch (userInput) {
+                    case 1:
+                        viewTools();
+                        break;
+                    case 2:
+                        saveTools();
+                        break;
+                    default:
+                        System.out.println("That is not a valid option. Returning to menu.");
+                        break;
+                }
                 break;
             case 3:
                 System.out.println("Please press 1 to view available provisions or 2 to save current provisions.");
@@ -242,13 +260,81 @@ public class viewListHelp extends MenuView
     //========================================================
     public void viewTools()
     {
+        // Create the tools variable ArrayList and store the current
+        // type and amount of tools in the list.
         ArrayList<ListItem> tools = theGame.getTools();
         
         System.out.println("\nHere are the tools available in the storehouse:");
         
         for (ListItem i : tools)
-            System.out.println(i.getItemName() + ": " + i.getItemNumber());
+            System.out.println(i.getItemName() + ": " + i.getItemNumber());      
+            
+        // Display the opening sentence
+        System.out.println("\nHere are the quantities of tools in the storehouse");
+        
+        // Start the loop to iterate through the ArrayList
+        for (ListItem i : tools)
+            
+        // Print the Name and quantity of tools in the ArrayList.
+        System.out.println(i.getItemName() + ": " + i.getItemNumber());
+   
 
+    }
+    
+    // The saveTools method
+    // Purpose: Saves a list of tools in the storehouse to the disk
+    // Parameters: none
+    // Returns: none
+    // =======================================================
+    public void saveTools() {
+        
+        
+        System.out.print("Save option selected.");
+            keyboard.nextLine();
+            
+            // Declare a string to hold the file name
+            String filePath;
+            
+            // Declare a reference to the PrintWriter object
+              PrintWriter output = null;
+            
+            // Prompt the user for a file name. get and save the users input
+            System.out.println("\nPlease enter a file name:");
+            filePath = keyboard.next();
+            
+            
+            try {
+                // Create the PrinterWriter object
+                output = new PrintWriter(filePath);
+                
+                // Get a reference to the ArrayList to output
+                ArrayList<ListItem> tools = theGame.getTools();
+                
+                // Output a heading for the report
+                output.println("Tools in the Storehouse");
+                output.printf("%n%-13s%-10s", "Type", "Quantity");
+   
+                // Use a for loop to get the data from the ArrayList
+                // and output it
+                for (ListItem i : tools){
+                output.printf("%n%-10s%-3s%-5d"
+                                                , i.getItemName ()  
+                                                , ":"
+                                                , i.getItemNumber());
+                }
+                System.out.println("List saved.");
+            }
+            
+            catch (Exception e){
+                // Output error message
+                System.out.println("There was an error printing the list.");
+            }
+            finally {
+                // If output is not null, close the file
+                if (output != null) {
+                        output.close();
+                }
+            }
     }
     
     // End Jack McBride

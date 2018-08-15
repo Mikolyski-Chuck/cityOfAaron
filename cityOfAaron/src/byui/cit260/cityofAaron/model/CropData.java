@@ -9,6 +9,7 @@ package byui.cit260.cityofAaron.model;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -102,6 +103,20 @@ public class CropData implements Serializable {
 
     public int getWheatForPeople() {
         return wheatForPeople;
+    }
+    
+    public ArrayList<ListItem> getReport() {
+        
+        ArrayList<ListItem> report = new ArrayList<>();
+
+        report.add(new ListItem("Year", this.year));
+        report.add(new ListItem("Acres Owned", this.acresOwned));
+        report.add(new ListItem("Wheat in Store", this.wheatInStore));
+        report.add(new ListItem("Wheat for People", this.wheatForPeople));
+
+        
+
+        return report;
     }
 
     public void setYear(int year) {
