@@ -112,7 +112,6 @@ public class CropData implements Serializable {
         report.add(new ListItem("Year", this.year));
         report.add(new ListItem("Acres Owned", this.acresOwned));
         report.add(new ListItem("Wheat in Store", this.wheatInStore));
-        report.add(new ListItem("Wheat for People", this.wheatForPeople));
 
         
 

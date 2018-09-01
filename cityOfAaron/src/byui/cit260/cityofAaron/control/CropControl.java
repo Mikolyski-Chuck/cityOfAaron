@@ -142,13 +142,16 @@ public class CropControl {
     //  and offerings.
     // Pre-conditions: The percentage of harvest must be greater than or
     // equal to zero and less than or equal to 100.
-    public static int setOffering(int offering) {
+    public static void setOffering(int offering, CropData cropData) throws CropException {
     
-    if (offering < 0 || offering > 100) {
-        return -1;
-    }
+        if (offering < 0 || offering > 100) {
+            throw new CropException ("Offering percentage must be between 0 and 100");
+        }
+        
+        // Save state
+        cropData.setOffering(offering);
+        System.out.println("\nOffering " + offering);
 
-    return offering;
 
     }
     // End Jack McBride

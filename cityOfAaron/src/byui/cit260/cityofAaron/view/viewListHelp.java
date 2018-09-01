@@ -288,7 +288,6 @@ public class viewListHelp extends MenuView
     // =======================================================
     public void saveTools() {
         
-        
         System.out.print("Save option selected.");
             keyboard.nextLine();
             
@@ -296,12 +295,11 @@ public class viewListHelp extends MenuView
             String filePath;
             
             // Declare a reference to the PrintWriter object
-              PrintWriter output = null;
+            PrintWriter output = null;
             
             // Prompt the user for a file name. get and save the users input
             System.out.println("\nPlease enter a file name:");
             filePath = keyboard.next();
-            
             
             try {
                 // Create the PrinterWriter object

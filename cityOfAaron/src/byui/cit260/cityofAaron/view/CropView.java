@@ -101,16 +101,45 @@ public class CropView
     // Returns: None
     public static void setOfferingView()
     {
+         // Create a boolean varaible to control loop.
+        boolean paramsNotOkay;
+    
+    // Begin Loop.    
+    do 
+        {
+            paramsNotOkay = false;
+
         // Prompt the user to enter how much wheat they would like to pay as
         // tithe
         System.out.println("What percentage of harvest would you like to " + 
                            "offer as tithes?");
         
-        // Get the user input and save it
-        int offering = keyboard.nextInt();
+            // Get the user input and save it.
+            // Make sure that the user input is a integer.
+            while (!keyboard.hasNextInt()) 
+            {
+            System.out.println("Please enter a integer.");
+            keyboard.next();
+            }
+     
+            int offering = keyboard.nextInt();
         
-        // Call the setOffering() method to set aside food to feed the people.
-        CropControl.setOffering(offering);
+            // Call the setOffering() method to set aside food to feed the people.
+            try 
+            {
+                CropControl.setOffering(offering, cropData);
+            }
+        
+            // Catch and display message thrown from feedPeople() method exception.
+            catch(CropException e) 
+            {
+                System.out.println("I am sorry master, I cannot do this.");
+                System.out.println(e.getMessage());
+                paramsNotOkay = true;
+        
+            }
+        }
+        while(paramsNotOkay);
     }   
     // End Jack McBride
     
